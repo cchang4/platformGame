@@ -2,9 +2,6 @@ class level{
   static final int empty = 0;
   static final int floor = 1;
   static final int ladder = 2;
-  int tileSize = 20; //size of each tile in pixels
-  int heightT = 15; //number of tiles vertically
-  int widthT = 25; //number of tiles horizontally
   
   int[][] world = new int[widthT][heightT];
 
