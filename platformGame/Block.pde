@@ -1,16 +1,30 @@
 class Block extends Tile{
-  int type;
+  String type;
   int x, y;
   
-  public Block(int type, int r, int c){
+  public Block(String type, int r, int c){
     super(r, c);
     this.type = type;
+    loadTile();
   }
   
-  private void intialize(){
+  void loadTile(){
+      switch(type){
+      case "-": //floor
+        stroke(35,170,33);
+        fill(30,200,30);
+        break;
+      case "#": //ladder
+        stroke(150,120,25);
+        fill(157,126,21);
+        break;
+      }
+      square = createShape(RECT, x, y, tileSize, tileSize);
+  }
+  
+   void intialize(){
     x = col * tileSize;
     y = row * tileSize;
-    square = createShape(RECT, x, y, tileSize, tileSize);
   }
   
 }
