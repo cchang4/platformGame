@@ -7,7 +7,8 @@ Platform game where the goal is to traverse across the whole stage.
 Controls: Arrow Keys   
 
 Development Log:  
-5/12 Yiru: created a level(map) example for testing
+5/12 Yiru: created a level(map) example for testing  
+5/12 Catherine: made player display on screen
 
 Project outline:  
 1. Player movement  
