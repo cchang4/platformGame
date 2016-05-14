@@ -1,5 +1,7 @@
 public class World{
   public Tile[][]map;
+  int heightT = 15; //number of tiles vertically
+  int widthT = 25; //number of tiles horizontally
   
   public World(){
     map = new Tile[widthT][heightT];
@@ -7,19 +9,19 @@ public class World{
   
   public void initialize(String stage){
     String line;
-    String[] tilesInLine = new String[widthT];
+    String[] tilesInLine = new String[heightT];
     BufferedReader reader = createReader(stage);
     try{
     int i=0;
     while((line = reader.readLine()) != null){
       tilesInLine = line.split(line, ' ');
-      for(int j=0; j<widthT; j++){
+      for(int j=0; j<heightT; j++){
         if(!tilesInLine[j].equals("0")){
           map[i][j] = tileType(tilesInLine[j], i, j);
         }
       }
+      i++;
     }
-    i++;
   }catch(IOException e){
     e.printStackTrace();
   }

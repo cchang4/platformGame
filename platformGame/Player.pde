@@ -25,6 +25,6 @@ public class Player implements Moveable{
   }
   
   void display(){
-    shape(square, x, y);
+    //shape(square, x, y);
   } 
 }
