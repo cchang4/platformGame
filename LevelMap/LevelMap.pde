@@ -14,7 +14,30 @@ void draw(){
   background(200);
   test.drawTile();
   p.display();
+  p.movement();
 }
 
+void keyPressed(){
+  if (key == CODED){
+    if (keyCode == LEFT){
+      p.setLeft(1);
+    }
+    
+    if (keyCode == RIGHT){
+      p.setRight(1);
+    }
+  }
+}
 
+void keyReleased(){
+  if (key == CODED){
+    if (keyCode == LEFT){
+      p.setLeft(0);
+    }
+    
+    if (keyCode == RIGHT){
+      p.setRight(0);
+    }
+  }
+}  
   

@@ -18,4 +18,23 @@ class player{
   void display(){
     shape(square, x, y);
   } 
+  
+  float left;
+  float right;
+  float xspeed = 5.0;
+  float smoothen = .001;
+  
+  void movement(){
+   x += (right - left) * xspeed;   
+   x -= (right - left) * (xspeed * smoothen);
+  }
+  
+  void setLeft( float newLeft){
+    left = newLeft;
+  }
+  
+  void setRight(float newRight){
+    right = newRight;
+  }
+  
 }
