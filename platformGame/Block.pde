@@ -8,6 +8,7 @@ class Block extends Tile{
     loadTile();
   }
   
+  
   void loadTile(){
       switch(type){
       case "-": //floor
@@ -20,6 +21,7 @@ class Block extends Tile{
         break;
       }
       square = createShape(RECT, x, y, tileSize, tileSize);
+      //return square;
   }
   
    void intialize(){
