@@ -23,12 +23,18 @@ class player{
   float right;
   float xspeed = 5.0;
   float smoothen = .001;
+  float once;
+  boolean jump;
   
   
   void movement(){
    x += (right - left) * xspeed;   
    x -= (right - left) * (xspeed * smoothen);
-     
+   
+   if(jump){
+   y = y - 20;
+   }
+   
    
    if(x>500){
      x = 0;
@@ -39,6 +45,13 @@ class player{
    }
   }
   
+  void fall(){
+    y += 5;
+  } 
+  
+  float getY(){
+    return y;
+  }
     
   void setLeft( float newLeft){
     left = newLeft;
@@ -46,6 +59,10 @@ class player{
   
   void setRight(float newRight){
     right = newRight;
+  }
+  
+  void setJump(boolean newJump){
+    jump = newJump;
   }
   
   

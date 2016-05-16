@@ -10,11 +10,16 @@ void setup(){
   
 }
 
+float ground = p.getY();
+
 void draw(){
   background(200);
   test.drawTile();
   p.display();
   p.movement();
+  if (p.getY() < ground){
+    p.fall();
+  }
 }
 
 void keyPressed(){
@@ -28,6 +33,7 @@ void keyPressed(){
     }
     
     if (keyCode == UP){
+      p.setJump(true);
 
     }
   }
@@ -44,7 +50,7 @@ void keyReleased(){
     }
     
      if (keyCode == UP){
-
+       p.setJump(false);
     }
     
   }
