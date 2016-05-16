@@ -26,6 +26,10 @@ void keyPressed(){
     if (keyCode == RIGHT){
       p.setRight(1);
     }
+    
+    if (keyCode == UP){
+
+    }
   }
 }
 
@@ -38,6 +42,11 @@ void keyReleased(){
     if (keyCode == RIGHT){
       p.setRight(0);
     }
+    
+     if (keyCode == UP){
+
+    }
+    
   }
 }  
   

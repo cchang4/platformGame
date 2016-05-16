@@ -24,11 +24,22 @@ class player{
   float xspeed = 5.0;
   float smoothen = .001;
   
+  
   void movement(){
    x += (right - left) * xspeed;   
    x -= (right - left) * (xspeed * smoothen);
+     
+   
+   if(x>500){
+     x = 0;
+   }
+   
+   if(x<0){
+     x = 500;
+   }
   }
   
+    
   void setLeft( float newLeft){
     left = newLeft;
   }
@@ -36,5 +47,6 @@ class player{
   void setRight(float newRight){
     right = newRight;
   }
+  
   
 }
