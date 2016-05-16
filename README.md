@@ -12,7 +12,7 @@ Development Log:
 
 5/15 Catherine: player moves L&R  
 
-5/16 Catherine: L&R wraps    
+5/16 Catherine: L&R wraps, player jumps (but continues to jump if key is held on to)      
 
 Project outline:  
 1. Player movement  
