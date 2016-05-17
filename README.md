@@ -16,6 +16,8 @@ Development Log:
 
 5/16 Catherine: L&R wraps, player jumps (but continues to jump if key is held on to)      
 
+5/17 Catherine: player jumps restricted (but can hold and move player midair :\ )  
+
 Project outline:  
 1. Player movement  
 2. Changing color of platform when player moves over it  
