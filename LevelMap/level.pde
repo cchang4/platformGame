@@ -1,10 +1,30 @@
 class level{
+  
   static final int empty = 0;
   static final int floor = 1;
   static final int ladder = 2;
   
-  int[][] world = new int[widthT][heightT];
+  int[][] world;
 
+  void readFile(String stage){
+    try{
+      BufferedReader reader = createReader(stage);
+      String line = reader.readLine();
+      String[] tilesInLine = new String[heightT];
+      int i = 0;
+      while(line != null){
+        line = reader.readLine();
+        tilesInLine = line.split(line, ' ');
+        for(int j=0; j<heightT; j++){
+          world[i][j] = int(tilesInLine[j]);
+        }
+        i++;
+      }
+    }catch(IOException e){
+      e.printStackTrace();
+    }
+    world = new int[heightT][widthT];
+  }
   int [][] start= {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},//1
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},//2
@@ -26,7 +46,7 @@ class level{
 void drawTile(){ 
   for(int i=0; i<widthT; i++){ //each colunm
     for(int j=0; j<heightT; j++){ //each tile in that column
-      switch(start[j][i]){
+      switch(world[j][i]){
       case 1: //floor
         stroke(35,170,33);
         fill(30,200,30);

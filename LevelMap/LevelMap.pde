@@ -12,6 +12,7 @@ void setup(){
 
 void draw(){
   background(200);
+  test.readFile("level.txt");
   test.drawTile();
   p.display();
 }
