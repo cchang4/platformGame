@@ -32,7 +32,8 @@ class player{
    x -= (right - left) * (xspeed * smoothen);
    
    if(jump){
-   y = y - 20;
+   y = max;
+   
    }
    
    
@@ -48,6 +49,10 @@ class player{
   void fall(){
     y += 5;
   } 
+  
+  float getX(){
+    return x;
+  }
   
   float getY(){
     return y;

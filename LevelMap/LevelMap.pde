@@ -11,6 +11,7 @@ void setup(){
 }
 
 float ground = p.getY();
+final float max = ground - 50;
 
 void draw(){
   background(200);
@@ -32,10 +33,10 @@ void keyPressed(){
       p.setRight(1);
     }
     
-    if (keyCode == UP){
-      p.setJump(true);
-
+    if (keyCode == UP){ 
+      p.setJump(true);      
     }
+    
   }
 }
 
