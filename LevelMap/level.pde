@@ -5,17 +5,15 @@ class level{
   static final int ladder = 2;
   static final int wall = 3;
   
-  int[][] world;
+  String[] tilesInLine = new String[heightT];
 
   void readFile(String stage){
     try{
       BufferedReader reader = createReader(stage);
-      String line = reader.readLine();
-      String[] tilesInLine = new String[heightT];
+      String line;
       int i = 0;
-      while(line != null){
-        line = reader.readLine();
-        tilesInLine = line.split(line, ' ');
+      while((line = reader.readLine()) != null){
+        tilesInLine = line.split(" ");
         for(int j=0; j<heightT; j++){
           world[i][j] = int(tilesInLine[j]);
         }
@@ -24,7 +22,6 @@ class level{
     }catch(IOException e){
       e.printStackTrace();
     }
-    world = new int[heightT][widthT];
   }
   int [][] start= {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},//1
@@ -48,7 +45,7 @@ class level{
   void drawTile(){ 
     for(int i=0; i<widthT; i++){ //each colunm
       for(int j=0; j<heightT; j++){ //each tile in that column
-        switch(start[j][i]){
+        switch(world[j][i]){
         case 1: //floor
           stroke(35,170,33);
           fill(30,200,30);
@@ -64,6 +61,16 @@ class level{
         }
         rect(i*tileSize, j*tileSize, //x,y top left corner
           tileSize-1, tileSize-1); //width and height of tile
+          /*if(world[j][i] == 1){
+            stroke(35,170,33);
+          fill(30,200,30);
+          rect(i*tileSize, j*tileSize, tileSize, tileSize);
+          }
+          if(world[j][i] == 2){
+            stroke(150,120,25);
+          fill(157,126,21);
+          rect(i*tileSize, j*tileSize, tileSize, tileSize);
+          }*/
       }
     }
   }
