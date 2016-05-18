@@ -9,7 +9,7 @@ public abstract class Tile{
   
   public abstract void intialize();
   
-  public PShape image(){
+  public PShape Tileimage(){
     return square;
   }
  

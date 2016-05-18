@@ -4,19 +4,20 @@ public class World{
   int widthT = 25; //number of tiles horizontally
   
   public World(){
-    map = new Tile[widthT][heightT];
+    map = new Tile[heightT][widthT];
   }
   
   public void initialize(String stage){
     String line;
-    String[] tilesInLine = new String[heightT];
+    String[] tilesInLine = new String[widthT];
     BufferedReader reader = createReader(stage);
     try{
     int i=0;
     while((line = reader.readLine()) != null){
+      //line = reader.readLine();
       tilesInLine = line.split(line, ' ');
-      for(int j=0; j<heightT; j++){
-        if(!tilesInLine[j].equals("0")){
+      for(int j=0; j<tilesInLine.length; j++){
+        if(tilesInLine[j].equals("0") == false){
           map[i][j] = tileType(tilesInLine[j], i, j);
         }
       }

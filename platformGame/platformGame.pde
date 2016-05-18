@@ -13,4 +13,11 @@ public void draw(){
   background(200);
   player.display();
   world.initialize("levelOne.txt");
+  textSize(10);
+  for(int r=0; r<height; r+=tileSize){
+    line(0,r,width,r);
+  }
+  for(int c=0; c<width;c+=tileSize){
+    line(c,0,c,height);
+  }
 }
