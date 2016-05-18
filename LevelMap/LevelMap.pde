@@ -9,6 +9,7 @@ void setup(){
   size(500, 300);
   p.playerSetup();
   world = new int[heightT][widthT];
+  test.readFile("level.txt");
 }
 
 float ground = p.getY();
@@ -16,7 +17,6 @@ final float max = ground - 50;
 
 void draw(){
   background(200);
-  test.readFile("level.txt");
   test.drawTile();
   p.display();
   p.movement();

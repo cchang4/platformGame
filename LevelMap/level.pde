@@ -1,9 +1,10 @@
 class level{
   
-  static final int empty = 0;
-  static final int floor = 1;
-  static final int ladder = 2;
-  static final int wall = 3;
+  final int empty = 0;
+  final int floor = 1;
+  final int ladder = 2;
+  final int changed = 3;
+  final int wall = 4;
   
   String[] tilesInLine = new String[heightT];
 
@@ -23,7 +24,7 @@ class level{
       e.printStackTrace();
     }
   }
-  int [][] start= {
+  /*int [][] start= {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},//1
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},//2
   {0,0,0,1,1,1,1,1,1,1,2,1,1,0,0,1,1,1,1,1,1,1,1,0,0},//3
@@ -39,7 +40,7 @@ class level{
   {0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},//13
   {0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},//14
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//15
-  };
+  };*/
 
 
   void drawTile(){ 
@@ -54,13 +55,20 @@ class level{
           stroke(150,120,25);
           fill(157,126,21);
           break;
+        case 3:
+          stroke(0, 232, 255);
+          fill(0, 255, 255);
+          break;
         default: //empty space
-          stroke(225);
+          stroke(235);
           fill(240);
           break;
         }
         rect(i*tileSize, j*tileSize, //x,y top left corner
           tileSize-1, tileSize-1); //width and height of tile
+         fill(0);
+         text(world[j][i]+"", i*tileSize+tileSize/2, j*tileSize+tileSize/2);
+  }
           /*if(world[j][i] == 1){
             stroke(35,170,33);
           fill(30,200,30);
@@ -76,26 +84,26 @@ class level{
   }
   
   //determine what tile is at a given position
-  int tileBelow(PVector here){
-    float gridX = here.x/tileSize;
-    float gridY = here.y/tileSize + tileSize;
+  int tileBelow(float x, float y){
+    int gridX = int(x/tileSize);
+    int gridY = int(y/tileSize + tileSize);
     
     //boundary checks
     if(gridX < 0 || gridX >= widthT || gridY < 0 || gridY >= heightT){
       return wall;
     }
     
-    return start[int(gridY)][int(gridX)];
+    return world[gridY][gridX];
   }
   
   //change tile at given position
-  void setTile(PVector thisPos, int newTile){
-    int gridX = int(thisPos.x/tileSize);
-    int gridY = int(thisPos.y/tileSize);
+  void setTile(float x, float y, int newTile){
+    int gridX = int(x/tileSize);
+    int gridY = int(y/tileSize);
    
      if(gridX<0 || gridX>=widthT || gridY<0 || gridY>=heightT) {
       return; // boundary check
     }
-    start[gridX][gridY] = newTile;
+    world[gridY][gridX] = newTile;
 }
 }
