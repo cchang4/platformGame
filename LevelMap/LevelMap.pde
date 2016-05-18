@@ -10,11 +10,50 @@ void setup(){
   
 }
 
+float ground = p.getY();
+final float max = ground - 50;
+
 void draw(){
   background(200);
   test.drawTile();
   p.display();
+  p.movement();
+  if (p.getY() < ground){
+    p.fall();
+  }
 }
 
+void keyPressed(){
+  if (key == CODED){
+    if (keyCode == LEFT){
+      p.setLeft(1);
+    }
+    
+    if (keyCode == RIGHT){
+      p.setRight(1);
+    }
+    
+    if (keyCode == UP){ 
+      p.setJump(true);      
+    }
+    
+  }
+}
 
+void keyReleased(){
+  if (key == CODED){
+    if (keyCode == LEFT){
+      p.setLeft(0);
+    }
+    
+    if (keyCode == RIGHT){
+      p.setRight(0);
+    }
+    
+     if (keyCode == UP){
+       p.setJump(false);
+    }
+    
+  }
+}  
   
