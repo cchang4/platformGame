@@ -3,6 +3,7 @@ class level{
   static final int floor = 1;
   static final int ladder = 2;
   static final int wall = 3;
+  static final int changed = 4;
   
   int[][] world = new int[widthT][heightT];
 
@@ -48,9 +49,9 @@ class level{
   }
   
   //determine what tile is at a given position
-  int tileBelow(PVector here){
-    float gridX = here.x/tileSize;
-    float gridY = here.y/tileSize + tileSize;
+  int tileBelow(float x, float y){
+    float gridX = x/tileSize;
+    float gridY = y/tileSize;
     
     //boundary checks
     if(gridX < 0 || gridX >= widthT || gridY < 0 || gridY >= heightT){
@@ -61,13 +62,17 @@ class level{
   }
   
   //change tile at given position
-  void setTile(PVector thisPos, int newTile){
-    int gridX = int(thisPos.x/tileSize);
-    int gridY = int(thisPos.y/tileSize);
+  void setTile(float x, float y, int newTile){
+    int gridX = int(x/tileSize);
+    int gridY = int(y/tileSize);
    
      if(gridX<0 || gridX>=widthT || gridY<0 || gridY>=heightT) {
       return; // boundary check
     }
     start[gridX][gridY] = newTile;
+    stroke(11,215,225);
+    fill(11,224,219);
+    rect(gridY*tileSize, gridX*tileSize, tileSize, tileSize);
+    println(start[gridX][gridY]);
 }
 }

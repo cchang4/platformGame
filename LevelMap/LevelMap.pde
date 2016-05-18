@@ -21,6 +21,9 @@ void draw(){
   if (p.getY() < ground){
     p.fall();
   }
+  if(test.tileBelow(p.getX(),p.getY()) == 1){
+    test.setTile(p.getX(), p.getY(), 4);
+  }
 }
 
 void keyPressed(){
