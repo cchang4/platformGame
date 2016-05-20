@@ -11,8 +11,6 @@ Development Log:
 Yiru: created a level(map) example for testing  
 Catherine: made player display on screen
 
-<<<<<<< HEAD
-=======
 5/13   
 Yiru: try to build map by reading a text file
 
@@ -24,8 +22,11 @@ Catherine: L&R wraps, player jumps (but continues to jump if key is held on to)
 
 5/17  
 Catherine: player jumps restricted (but can hold and move player midair :\ )  
+Yiru: map shows up(but the last 5 columns are missing)
 
->>>>>>> 1ab75dc7dab97a9faa94464146728416c3ebfb6e
+5/20
+Yiru: change the Tile when the player walks accross the floor tile or up the ladder
+
 Project outline:  
 1. Player movement  
 2. Changing color of platform when player moves over it  
