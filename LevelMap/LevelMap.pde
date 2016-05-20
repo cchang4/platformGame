@@ -11,7 +11,7 @@ void setup(){
   world = new int[heightT][widthT];
   test.readFile("level.txt");
   
-  frameRate(24);
+  frameRate(60);
 }
 
 float ground = p.getY();
