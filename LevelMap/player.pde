@@ -42,8 +42,13 @@ class player{
    }
    
    if(x<0){
+<<<<<<< HEAD
      x = 0;
    }
+=======
+     x = 500;
+   }  
+>>>>>>> b2b6ae9dc0b1426778b2613990267b938bb05d04
   }
   
   void fall(){
@@ -69,6 +74,5 @@ class player{
   void setJump(boolean newJump){
     jump = newJump;
   }
-  
   
 }

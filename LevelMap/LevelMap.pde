@@ -1,13 +1,17 @@
 level test = new level();
 int tileSize = 20; //size of each tile in pixels
-int heightT = 15; //number of tiles vertically
+int heightT = 20; //number of tiles vertically
 int widthT = 25; //number of tiles horizontally
 player p = new player(0,260);
+int[][]world;
 
 void setup(){
   size(500, 300);
   p.playerSetup();
+  world = new int[heightT][widthT];
+  test.readFile("level.txt");
   
+  frameRate(24);
 }
 
 float ground = p.getY();
@@ -21,6 +25,8 @@ void draw(){
   if (p.getY() < ground){
     p.fall();
   }
+
+  changeTile();
 }
 
 void keyPressed(){
@@ -68,3 +74,19 @@ void keyReleased(){
   }
 }  
   
+void changeTile(){
+  //float pcenterX = p.getX()+tileSize/2;
+  //float pcenterY = p.getY()+tileSize/2;
+  if(test.tileAt(p.getX(),p.getY()+tileSize) == 1){ //if tile under is floor
+    test.setTile(p.getX(),p.getY()+tileSize, 3);
+  }
+  if(test.tileAt(p.getX()+tileSize/2,p.getY()+tileSize) == 1){ //if tile under is floor
+    test.setTile(p.getX()+tileSize/2,p.getY()+tileSize, 3);
+  }
+  if(test.tileAt(p.getX(), p.getY()) == 2){
+    test.setTile(p.getX(),p.getY(), 3);
+  }
+  if(test.tileAt(p.getX()+tileSize/2, p.getY()) == 2){
+    test.setTile(p.getX()+tileSize/2,p.getY(), 3);
+  }
+}
