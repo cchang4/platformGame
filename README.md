@@ -18,10 +18,13 @@ Yiru: try to build map by reading a text file
 Catherine: player moves L&R  
 
 5/16  
-Catherine: L&R wraps, player jumps (but continues to jump if key is held on to)      
+Catherine: L&R wraps, player jumps (but continues to jump if key is held on to) 
+Yiru: check tile at a specified position
 
 5/17  
 Catherine: player jumps restricted (but can hold and move player midair :\ )  
+
+5/18
 Yiru: map shows up(but the last 5 columns are missing)
 
 5/20
