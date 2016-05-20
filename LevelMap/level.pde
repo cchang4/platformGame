@@ -67,8 +67,7 @@ class level{
         rect(i*tileSize, j*tileSize, //x,y top left corner
           tileSize-1, tileSize-1); //width and height of tile
          fill(0);
-         text(world[j][i]+"", i*tileSize+tileSize/2, j*tileSize+tileSize/2);
-  }
+         //text(world[j][i]+"", i*tileSize+tileSize/2, j*tileSize+tileSize/2);
           /*if(world[j][i] == 1){
             stroke(35,170,33);
           fill(30,200,30);
@@ -84,15 +83,15 @@ class level{
   }
   
   //determine what tile is at a given position
-  int tileBelow(float x, float y){
+  int tileAt(float x, float y){
     int gridX = int(x/tileSize);
-    int gridY = int(y/tileSize + tileSize);
+    int gridY = int(y/tileSize);
     
     //boundary checks
     if(gridX < 0 || gridX >= widthT || gridY < 0 || gridY >= heightT){
       return wall;
     }
-    
+    //println(world[gridY][gridX]);
     return world[gridY][gridX];
   }
   

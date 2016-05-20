@@ -43,7 +43,7 @@ class player{
    
    if(x<0){
      x = 500;
-   }
+   }  
   }
   
   void fall(){
@@ -69,6 +69,5 @@ class player{
   void setJump(boolean newJump){
     jump = newJump;
   }
-  
   
 }
