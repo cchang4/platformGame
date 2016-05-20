@@ -69,7 +69,13 @@ void changeTile(){
   if(test.tileAt(p.getX(),p.getY()+tileSize) == 1){ //if tile under is floor
     test.setTile(p.getX(),p.getY()+tileSize, 3);
   }
+  if(test.tileAt(p.getX()+tileSize/2,p.getY()+tileSize) == 1){ //if tile under is floor
+    test.setTile(p.getX()+tileSize/2,p.getY()+tileSize, 3);
+  }
   if(test.tileAt(p.getX(), p.getY()) == 2){
     test.setTile(p.getX(),p.getY(), 3);
+  }
+  if(test.tileAt(p.getX()+tileSize/2, p.getY()) == 2){
+    test.setTile(p.getX()+tileSize/2,p.getY(), 3);
   }
 }
