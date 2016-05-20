@@ -5,6 +5,7 @@ int widthT = 25; //number of tiles horizontally
 player p = new player(0,260);
 int[][]world;
 int blue;
+int score;
 
 void setup(){
   size(500, 300);
@@ -33,6 +34,7 @@ void draw(){
   fill(0);
   text("changed:"+blue+"  leftover:"+test.cTiles(), tileSize,tileSize);
   test.winLevel();
+  score = blue * 10;
 }
 
 void keyPressed(){
@@ -95,8 +97,8 @@ void changeTile(){
     test.setTile(p.getX(),p.getY(), 3);
     blue++;
   }
-  if(test.tileAt(p.getX()+tileSize/2, p.getY()) == 2){
-    test.setTile(p.getX()+tileSize/2,p.getY(), 3);
+  if(test.tileAt(p.getX()+tileSize/1.5, p.getY()) == 2){
+    test.setTile(p.getX()+tileSize/1.5,p.getY(), 3);
     blue++;
   }
 }
