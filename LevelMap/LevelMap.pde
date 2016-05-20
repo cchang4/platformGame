@@ -12,7 +12,7 @@ void setup(){
   world = new int[heightT][widthT];
   test.readFile("level.txt");
   
-  frameRate(24);
+  frameRate(60);
 }
 
 float ground = p.getY();
@@ -39,15 +39,26 @@ void keyPressed(){
   if (key == CODED){
     if (keyCode == LEFT){
       p.setLeft(1);
+      if(keyCode == UP){
+        p.setJump(false);
+      }
     }
     
     if (keyCode == RIGHT){
       p.setRight(1);
+       if(keyCode == UP){
+        p.setJump(false);
+      }
     }
     
     if (keyCode == UP){ 
-      p.setJump(true);      
+      if(p.getY() != ground){
+        p.setJump(false);
+      }else{
+      p.setJump(true);     
+      }
     }
+    
     
   }
 }
