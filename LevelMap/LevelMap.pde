@@ -4,6 +4,7 @@ int heightT = 20; //number of tiles vertically
 int widthT = 25; //number of tiles horizontally
 player p = new player(0,260);
 int[][]world;
+int blue;
 
 void setup(){
   size(500, 300);
@@ -27,6 +28,11 @@ void draw(){
   }
 
   changeTile();
+  textAlign(LEFT);
+  textSize(tileSize/1.5);
+  fill(0);
+  text("changed:"+blue+"  leftover:"+test.cTiles(), tileSize,tileSize);
+  test.winLevel();
 }
 
 void keyPressed(){
@@ -68,14 +74,18 @@ void changeTile(){
   //float pcenterY = p.getY()+tileSize/2;
   if(test.tileAt(p.getX(),p.getY()+tileSize) == 1){ //if tile under is floor
     test.setTile(p.getX(),p.getY()+tileSize, 3);
+    blue++;
   }
   if(test.tileAt(p.getX()+tileSize/2,p.getY()+tileSize) == 1){ //if tile under is floor
     test.setTile(p.getX()+tileSize/2,p.getY()+tileSize, 3);
+    blue++;
   }
   if(test.tileAt(p.getX(), p.getY()) == 2){
     test.setTile(p.getX(),p.getY(), 3);
+    blue++;
   }
   if(test.tileAt(p.getX()+tileSize/2, p.getY()) == 2){
     test.setTile(p.getX()+tileSize/2,p.getY(), 3);
+    blue++;
   }
 }
