@@ -15,7 +15,7 @@ class level{
       int i = 0;
       while((line = reader.readLine()) != null){
         tilesInLine = line.split(" ");
-        for(int j=0; j<heightT; j++){
+        for(int j=0; j<heightT+5; j++){
           world[i][j] = int(tilesInLine[j]);
         }
         i++;
