@@ -24,10 +24,10 @@ Yiru: check tile at a specified position
 5/17  
 Catherine: player jumps restricted (but can hold and move player midair :\ )    
 
-5/18
+5/18  
 Yiru: map shows up(but the last 5 columns are missing)  
 
-5/20
+5/20  
 Yiru: change the Tile when the player walks accross the floor tile or up the ladder  
 
 Project outline:  
