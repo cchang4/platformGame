@@ -105,7 +105,7 @@ class level{
          }
       }
     }
-    return needChange-30;
+    return needChange;
   }
   
   void winLevel(){
