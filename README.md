@@ -14,7 +14,7 @@ Catherine: made player display on screen
 5/13   
 Yiru: try to build map by reading a text file
 
-5/15 
+5/15   
 Catherine: player moves L&R  
 
 5/16  
