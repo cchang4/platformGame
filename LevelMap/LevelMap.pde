@@ -40,6 +40,8 @@ void draw(){
   score = blue * 10;
   
   mons.display();
+  mons.move();
+  mons.hitWall();
 }
 
 void keyPressed(){
