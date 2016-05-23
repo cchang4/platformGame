@@ -22,10 +22,10 @@ void draw(){
   test.drawTile();
   p.display();
   p.movement();
-  if (p.getY() < ground){
+  
+  if (p.getY() < ground && p.getClimb() == false){
     p.fall();
-  }
-
+  }               
   changeTile();
 }
 
@@ -40,20 +40,14 @@ void keyPressed(){
     }
     
     if (keyCode == UP){ 
-      
-           
-      if(test.tileAt(p.getX(), p.getY()) == 2 || 
-         test.tileAt(p.getX(), p.getY()) == 3){
+                
+      if(test.tileAt(p.getX()+10, p.getY()+10) == 2 || 
+         test.tileAt(p.getX()+10, p.getY()+10) == 3){
         p.setJump(false);
         p.setClimb(true);
-      }
-      
-      if(p.getY() != ground){
-        p.setJump(false);
-      }    
-     
-      
-      p.setJump(true); 
+      }else{
+        p.setJump(true); 
+     }
     }
     
     

@@ -37,7 +37,7 @@ class player{
    }
    
    if(ladder){
-     y -= 1;
+     y -= 2;
    }
    
    
@@ -61,6 +61,10 @@ class player{
   
   float getY(){
     return y;
+  }
+  
+  boolean getClimb(){
+    return ladder;
   }
     
   void setLeft( float newLeft){
