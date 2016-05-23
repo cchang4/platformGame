@@ -128,6 +128,5 @@ void lose() {
     textSize(tileSize);
     textAlign(CENTER);
     text("YOU LOSE", width/2, height/2);
-    p.xspeed = 0;
   }
 }

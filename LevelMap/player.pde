@@ -75,7 +75,7 @@ class player {
   boolean isDead = false;
   boolean colli = false;
   int noColTime = 60;
-  int timer = 0;
+  int timer = noColTime;
 
   boolean collide(monster m) {
     if (colli == false) {
@@ -108,13 +108,13 @@ class player {
   //invincible after collision
   void invin() {
     if (colli) {
-      timer++;
+      timer--;
       textAlign(LEFT);
       textSize(tileSize/1.5);
       fill(0);
-      text("timer:"+timer, tileSize, height-5);
-      if (timer >= noColTime) {
-        timer = 0;
+      text("invincible time:"+timer/10, tileSize, height-5);
+      if (timer <= 0) {
+        timer = noColTime;
         colli = false;
       }
     }
