@@ -6,6 +6,7 @@ player p = new player(0,260);
 int[][]world;
 int blue;
 int score;
+monster mons = new monster(400, 260);
 
 void setup(){
   size(500, 300);
@@ -14,6 +15,8 @@ void setup(){
   test.readFile("level.txt");
   
   frameRate(60);
+  
+  mons.setup();
 }
 
 float ground = p.getY();
@@ -35,6 +38,8 @@ void draw(){
   text("changed:"+blue+"  leftover:"+test.cTiles(), tileSize,tileSize);
   test.winLevel();
   score = blue * 10;
+  
+  mons.display();
 }
 
 void keyPressed(){
