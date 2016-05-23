@@ -123,4 +123,17 @@ class level{
       
     }
   }
+  
+  void lose(){
+    if(lives == 0){
+      fill(0,200);
+      rectMode(CENTER);
+      rect(width/2, height/2, width/2, height/2);
+      fill(250);
+      textSize(tileSize);
+      textAlign(CENTER);
+      text("YOU LOSE", width/2, height/2);
+      p.xspeed = 0;
+    }
+  }
 }

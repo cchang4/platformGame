@@ -37,4 +37,10 @@ class monster {
       direction = "left";
     }
   }
+
+  void touch() {
+    if ((p.getX() == x || p.getX() == x+tileSize) && p.getY() == y) {
+      lives--;
+    }
+  }
 }

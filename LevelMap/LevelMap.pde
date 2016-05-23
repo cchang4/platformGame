@@ -6,6 +6,7 @@ player p = new player(0,260);
 int[][]world;
 int blue;
 int score;
+int lives = 3;
 monster mons = new monster(400, 260);
 
 void setup(){
@@ -35,13 +36,17 @@ void draw(){
   textAlign(LEFT);
   textSize(tileSize/1.5);
   fill(0);
-  text("changed:"+blue+"  leftover:"+test.cTiles(), tileSize,tileSize);
+  text("changed:"+blue, tileSize,tileSize);
+  //text("changed:"+blue+"  leftover:"+test.cTiles(), tileSize,tileSize);
+  textAlign(RIGHT);
+  text("lives:"+lives, width-tileSize, tileSize);
   test.winLevel();
   score = blue * 10;
   
   mons.display();
   mons.move();
   mons.hitWall();
+  mons.touch();
 }
 
 void keyPressed(){
