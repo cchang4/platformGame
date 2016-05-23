@@ -8,6 +8,7 @@ int blue;
 int score;
 int lives = 3;
 monster mons = new monster(400, 260);
+monster[]m = new monster[3];
 
 void setup() {
   size(500, 300);
@@ -18,6 +19,12 @@ void setup() {
   frameRate(60);
 
   mons.setup();
+  m[0] = new monster(400,260);
+  m[1] = new monster(200,180);
+  m[2] = new monster(400,60);
+  for(int i=0;i<m.length;i++){
+    m[i].setup();
+  }
 }
 
 float ground = p.getY();
@@ -50,9 +57,12 @@ void draw() {
   mons.display();
   mons.move();
   mons.hitWall();
-  /*if (mons.collide(p, mons)) {
-    lives--;
-  }*/
+  for(int i=0;i<m.length;i++){
+    m[i].display();
+    m[i].move();
+    m[i].hitWall();
+    p.collide(m[i]);
+  }
  
 }
 

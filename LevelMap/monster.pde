@@ -30,10 +30,10 @@ class monster {
   }
 
   void hitWall() {
-    if (x<0) {
+    if (x<0 || test.tileAt(x-tileSize, y+tileSize) == 0) {
       direction = "right";
     }
-    if (x>width-tileSize) {
+    if (x>width-tileSize || test.tileAt(x+tileSize, y+tileSize) == 0) {
       direction = "left";
     }
   }
