@@ -46,11 +46,20 @@ void keyPressed(){
     }
     
     if (keyCode == UP){ 
+      
+           
+      if(test.tileAt(p.getX(), p.getY()) == 2 || 
+         test.tileAt(p.getX(), p.getY()) == 3){
+        p.setJump(false);
+        p.setClimb(true);
+      }
+      
       if(p.getY() != ground){
         p.setJump(false);
-      }else{
-      p.setJump(true);     
-      }
+      }    
+     
+      
+      p.setJump(true); 
     }
     
     
@@ -61,14 +70,21 @@ void keyReleased(){
   if (key == CODED){
     if (keyCode == LEFT){
       p.setLeft(0);
+        if(keyCode == UP){
+        p.setJump(false);
+      }
     }
     
     if (keyCode == RIGHT){
       p.setRight(0);
+        if(keyCode == UP){
+        p.setJump(false);
+      }
     }
     
      if (keyCode == UP){
        p.setJump(false);
+       p.setClimb(false);
     }
     
   }
