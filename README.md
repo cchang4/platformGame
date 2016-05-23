@@ -30,6 +30,9 @@ Yiru: map shows up(but the last 5 columns are missing)
 5/20  
 Yiru: change the Tile when the player walks accross the floor tile or up the ladder  
 
+5/23
+Yiru: create monster, player loses life when colliding with monster, theres invincible time after the collision, player loses when there no lives left
+
 Project outline:  
 1. Player movement  
 2. Changing color of platform when player moves over it  
