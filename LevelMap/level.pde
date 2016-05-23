@@ -119,21 +119,9 @@ class level{
       text("LEVEL COMPLETE", width/2, height/2);
       textSize(tileSize/1.5);
       text("score: "+score, width/2, height/2+20);
-      p.xspeed = 0;
+      p.setLeft(0);
+      p.setRight(0);
       
-    }
-  }
-  
-  void lose(){
-    if(lives == 0){
-      fill(0,200);
-      rectMode(CENTER);
-      rect(width/2, height/2, width/2, height/2);
-      fill(250);
-      textSize(tileSize);
-      textAlign(CENTER);
-      text("YOU LOSE", width/2, height/2);
-      p.xspeed = 0;
     }
   }
 }

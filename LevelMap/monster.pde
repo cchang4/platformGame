@@ -2,7 +2,7 @@ class monster {
 
   PShape mons;
   float x, y;
-  float speed = 2.0;
+  float speed = 1.0;
   String direction;
 
   monster(float x, float y) {
@@ -37,10 +37,12 @@ class monster {
       direction = "left";
     }
   }
-
-  void touch() {
-    if ((p.getX() == x || p.getX() == x+tileSize) && p.getY() == y) {
-      lives--;
-    }
+  
+  float getX(){
+    return x;
   }
+  float getY(){
+    return y;
+  }
+  
 }
