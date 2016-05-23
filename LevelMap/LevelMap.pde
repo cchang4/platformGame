@@ -27,16 +27,10 @@ void keyPressed(){
   if (key == CODED){
     if (keyCode == LEFT){
       p.setLeft(1);
-      if(keyCode == UP){
-        p.setJump(false);
-      }
     }
     
     if (keyCode == RIGHT){
       p.setRight(1);
-       if(keyCode == UP){
-        p.setJump(false);
-      }
     }
     
     if (keyCode == UP){ 
