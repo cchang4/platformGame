@@ -23,8 +23,8 @@ class player{
   float right;
   float xspeed = 5.0;
   float smoothen = .001;
-  float once;
   boolean jump;
+  boolean ladder;
   
   
   void movement(){
@@ -32,8 +32,12 @@ class player{
    x -= (right - left) * (xspeed * smoothen);
    
    if(jump){
-   y = max;
+     y = max;
    
+   }
+   
+   if(ladder){
+     y -= 1;
    }
    
    
@@ -45,6 +49,7 @@ class player{
      x = 0;
    }
   }
+
   
   void fall(){
     y += 5;
@@ -70,5 +75,8 @@ class player{
     jump = newJump;
   }
   
+  void setClimb(boolean newLadder){
+    ladder = newLadder;
+  }
   
 }
