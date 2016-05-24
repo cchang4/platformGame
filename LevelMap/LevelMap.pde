@@ -35,19 +35,16 @@ void draw() {
   test.drawTile();
   p.display();
   p.movement();
-<<<<<<< HEAD
+
   
   if (p.getY() < ground && p.getClimb() == false){
     p.fall();
   }               
-=======
-  if (p.getY() < ground) {
-    p.fall();
-  }
+
   p.collide(mons);
   p.invin();
 
->>>>>>> 0e5b778ad56f332c7da9e618eeee7a06c53553be
+
   changeTile();
   textAlign(LEFT);
   textSize(tileSize/1.5);
@@ -77,17 +74,18 @@ void keyPressed() {
   if (key == CODED) {
     if (keyCode == LEFT) {
       p.setLeft(1);
-<<<<<<< HEAD
-=======
       if (keyCode == UP) {
         p.setJump(false);
       }
->>>>>>> 0e5b778ad56f332c7da9e618eeee7a06c53553be
+
     }
 
     if (keyCode == RIGHT) {
       p.setRight(1);
-<<<<<<< HEAD
+       if (keyCode == UP) {
+        p.setJump(false);
+      }
+
     }
     
     if (keyCode == UP){ 
@@ -99,19 +97,9 @@ void keyPressed() {
       }else{
         p.setJump(true); 
      }
-=======
-      if (keyCode == UP) {
-        p.setJump(false);
-      }
-    }
 
-    if (keyCode == UP) { 
-      if (p.getY() != ground) {
-        p.setJump(false);
-      } else {
-        p.setJump(true);
-      }
->>>>>>> 0e5b778ad56f332c7da9e618eeee7a06c53553be
+   
+
     }
   }
 }
@@ -131,17 +119,14 @@ void keyReleased() {
         p.setJump(false);
       }
     }
-<<<<<<< HEAD
+
     
      if (keyCode == UP){
        p.setJump(false);
        p.setClimb(false);
-=======
+     }
 
-    if (keyCode == UP) {
-      p.setJump(false);
->>>>>>> 0e5b778ad56f332c7da9e618eeee7a06c53553be
-    }
+
   }
 }  
 
