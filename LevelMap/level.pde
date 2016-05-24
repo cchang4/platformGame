@@ -93,7 +93,9 @@ class level{
      if(gridX<0 || gridX>=widthT || gridY<0 || gridY>=heightT) {
       return; // boundary check
     }
+    
     world[gridY][gridX] = newTile;
+    
 }
 
  int cTiles(){
