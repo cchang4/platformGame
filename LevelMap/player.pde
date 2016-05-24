@@ -74,7 +74,7 @@ class player {
   //collision/die
   boolean isDead = false;
   boolean colli = false;
-  int noColTime = 60;
+  int noColTime = 80;
   int timer = noColTime;
 
   boolean collide(monster m) {
