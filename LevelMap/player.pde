@@ -32,7 +32,9 @@ class player {
    x -= (right - left) * (xspeed * smoothen);
    
    if(jump){
-     y = max;
+     if(y > max){
+       y-= 12;
+     } 
    
    }
    
