@@ -45,4 +45,5 @@ Project outline:
 
 Demo Information:  
 LevelMap is the main file  
-Still working on first level and smoothing out movements  
+Still working on first level   
+Movements still very buggy
