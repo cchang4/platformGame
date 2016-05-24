@@ -60,24 +60,14 @@ class level{
           fill(0, 255, 255);
           break;
         default: //empty space
-          stroke(235);
-          fill(240);
+          //stroke(235);
+          noStroke();
+          fill(240,63);
+          //tint(255, 126);
           break;
         }
         rect(i*tileSize, j*tileSize, //x,y top left corner
           tileSize-1, tileSize-1); //width and height of tile
-         fill(0);
-         //text(world[j][i]+"", i*tileSize+tileSize/2, j*tileSize+tileSize/2);
-          /*if(world[j][i] == 1){
-            stroke(35,170,33);
-          fill(30,200,30);
-          rect(i*tileSize, j*tileSize, tileSize, tileSize);
-          }
-          if(world[j][i] == 2){
-            stroke(150,120,25);
-          fill(157,126,21);
-          rect(i*tileSize, j*tileSize, tileSize, tileSize);
-          }*/
       }
     }
   }
@@ -107,4 +97,33 @@ class level{
     world[gridY][gridX] = newTile;
     
 }
+
+ int cTiles(){
+      int needChange = 0;
+    for(int i=0; i<widthT; i++){ //each colunm
+      for(int j=0; j<heightT; j++){
+             if(world[j][i] == 1 || world[j][i] == 2){
+           needChange++;
+         }
+      }
+    }
+    return needChange;
+  }
+  
+  void winLevel(){
+    if(cTiles() == 0){
+      fill(0,200);
+      rectMode(CENTER);
+      rect(width/2, height/2, width/2, height/2);
+      fill(250);
+      textSize(tileSize);
+      textAlign(CENTER);
+      text("LEVEL COMPLETE", width/2, height/2);
+      textSize(tileSize/1.5);
+      text("score: "+score, width/2, height/2+20);
+      p.setLeft(0);
+      p.setRight(0);
+      
+    }
+  }
 }
