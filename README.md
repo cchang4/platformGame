@@ -1,7 +1,7 @@
 # platformGame
 
 Team Name: CYa   
-Project Name: Changing Color?????
+Project Name: Changing Color
 
 Platform game where the goal is to traverse across the whole stage.   
 Controls: Arrow Keys   
@@ -30,13 +30,19 @@ Yiru: map shows up(but the last 5 columns are missing)
 5/20  
 Yiru: change the Tile when the player walks accross the floor tile or up the ladder  
 
+5/22  
+Catherine: Worked on ladder movements (doesn't quite work)  
+
 5/23
-Yiru: create monster, player loses life when colliding with monster, theres invincible time after the collision, player loses when there no lives left
+Yiru: create monster, player loses life when colliding with monster, theres invincible time after the collision, player loses when there no lives left  
+Catherine: Worked more on ladder movement (still not there yet but closer now)  
 
 Project outline:  
-1. Player movement  
+1. Basic player movement (L&R&Jump)  
 2. Changing color of platform when player moves over it  
-3. TBD once above is completed  
+3. Implement monsters
+4. rest TBD once above is completed    
 
 Demo Information:  
-TBD 
+LevelMap is the main file  
+Still working on first level and smoothing out movements  
