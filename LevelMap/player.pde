@@ -13,6 +13,7 @@ class player {
     square = createShape(RECT, 0, 0, 20, 20);
     square.setFill(color(0, 0, 255));
     square.setStroke(false);
+    
   }
 
   void display() {
@@ -23,8 +24,10 @@ class player {
   float right;
   float xspeed = 5.0;
   float smoothen = .001;
+  float newplatform;
   boolean jump;
   boolean ladder;
+  boolean fall;
   
   
   void movement(){
@@ -40,9 +43,11 @@ class player {
    
    if(ladder){
      y -= 2;
-     
-   }
+   } 
    
+    if (fall) {
+    y += 5;
+  } 
    
    if(x>=480){
      x = 480;
@@ -52,12 +57,10 @@ class player {
      x = 0;
    }
   }
-
-
-
- void fall() {
-    y += 5;
-  } 
+  
+  void setFall(boolean newFall){
+    fall = newFall;
+  }
 
   float getX() {
     return x;
@@ -65,6 +68,14 @@ class player {
 
   float getY() {
     return y;
+  }
+  
+  void setX(float newX){
+    x = newX;
+  }
+  
+  void setY(float newY){
+    y = newY;
   }
 
   

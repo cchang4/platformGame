@@ -34,12 +34,11 @@ void draw() {
   background(200);
   test.drawTile();
   p.display();
-  p.movement();
-
+  p.movement(); 
   
-  if (p.getY() < ground && p.getClimb() == false){
-    p.fall();
-  }               
+  if (test.tileAt(p.getX()+20, p.getY()+20) == 0){
+    p.setFall(true);
+  }
 
   p.collide(mons);
   p.invin();
