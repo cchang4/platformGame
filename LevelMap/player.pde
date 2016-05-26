@@ -40,6 +40,7 @@ class player {
    
    if(ladder){
      y -= 2;
+     
    }
    
    

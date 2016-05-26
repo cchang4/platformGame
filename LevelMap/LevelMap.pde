@@ -75,15 +75,17 @@ void keyPressed() {
     if (keyCode == LEFT) {
       p.setLeft(1);
       if (keyCode == UP) {
-        p.setJump(false);
+        p.setLeft(0);
       }
+      
+      
 
     }
 
     if (keyCode == RIGHT) {
       p.setRight(1);
        if (keyCode == UP) {
-        p.setJump(false);
+        p.setRight(0);
       }
 
     }
@@ -91,9 +93,15 @@ void keyPressed() {
     if (keyCode == UP){ 
                 
       if(test.tileAt(p.getX()+10, p.getY()+10) == 2 || 
-         test.tileAt(p.getX()+10, p.getY()+10) == 3){
+         test.tileAt(p.getX()+10, p.getY()+10) == 3 ||
+         test.tileAt(p.getX()-10, p.getY()-10) == 2 || 
+         test.tileAt(p.getX()-10, p.getY()-10) == 3 ||
+         test.tileAt(p.getX(), p.getY()) == 2 || 
+         test.tileAt(p.getX(), p.getY()) == 3){
         p.setJump(false);
         p.setClimb(true);
+        p.setLeft(0);
+        p.setRight(0);
       }else{
         p.setJump(true); 
      }
