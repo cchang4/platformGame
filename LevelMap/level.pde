@@ -73,7 +73,7 @@ class level{
   }
   
   //determine what tile is at a given position
-  int tileBelow(float x, float y){
+  int tileAt(float x, float y){
     float gridX = x/tileSize;
     float gridY = y/tileSize;
     
@@ -82,7 +82,7 @@ class level{
       return wall;
     }
     //println(world[gridY][gridX]);
-    return world[gridY][gridX];
+    return world[int(gridY)][int(gridX)];
   }
   
   //change tile at given position

@@ -65,7 +65,6 @@ void draw() {
     p.collide(m[i]);
   }
  
->>>>>>> 0e5b778ad56f332c7da9e618eeee7a06c53553be
 }
 
 void keyPressed() {
