@@ -101,15 +101,16 @@ void keyPressed() {
         p.setClimb(true);
         p.setLeft(0);
         p.setRight(0);
-      }else{
-        p.setJump(true); 
-     }
-
-   
-
+      }
+      if( test.tileAt(p.getX(), p.getY()) == 1){
+        p.setJump(false); 
     }
+    p.setJump(true);
+  }
   }
 }
+
+
 
 void keyReleased() {
   if (key == CODED) {
@@ -129,7 +130,6 @@ void keyReleased() {
 
     
      if (keyCode == UP){
-       p.setJump(false);
        p.setClimb(false);
      }
 

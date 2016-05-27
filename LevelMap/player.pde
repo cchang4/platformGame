@@ -23,7 +23,10 @@ class player {
   float left;
   float right;
   float xspeed = 5.0;
+  float yspeed = -5.0;
+  float GRAVITY = .25;
   float smoothen = .001;
+  
   float newplatform;
   boolean jump;
   boolean ladder;
@@ -35,19 +38,14 @@ class player {
    x -= (right - left) * (xspeed * smoothen);
    
    if(jump){
-     if(y > max){
-       y-= 12;
-     } 
-   
+     y+= yspeed;
+     yspeed+= GRAVITY; 
    }
    
    if(ladder){
      y -= 2;
    } 
    
-    if (fall) {
-    y += 5;
-  } 
    
    if(x>=480){
      x = 480;
