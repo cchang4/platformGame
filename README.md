@@ -37,10 +37,13 @@ Catherine: Worked on ladder movements (doesn't quite work)
 Yiru: create monster, player loses life when colliding with monster, theres invincible time after the collision, player loses when there no lives left  
 Catherine: Worked more on ladder movement (still not there yet but closer now)  
 
+5/26  
+Catherine: Adjusting more movement (jumping etc.) not done yet tho  
+
 Project outline:  
 1. Basic player movement (L&R&Jump)  
 2. Changing color of platform when player moves over it  
-3. Implement monsters
+3. Implement monsters  
 4. rest TBD once above is completed    
 
 Demo Information:  

@@ -19,10 +19,10 @@ void setup() {
   frameRate(60);
 
   mons.setup();
-  m[0] = new monster(400,260);
-  m[1] = new monster(200,180);
-  m[2] = new monster(400,60);
-  for(int i=0;i<m.length;i++){
+  m[0] = new monster(400, 260);
+  m[1] = new monster(200, 180);
+  m[2] = new monster(400, 60);
+  for (int i=0; i<m.length; i++) {
     m[i].setup();
   }
 }
@@ -35,8 +35,17 @@ void draw() {
   test.drawTile();
   p.display();
   p.movement();
+<<<<<<< HEAD
  
   
+=======
+
+
+  if (p.getY() < ground && p.getClimb() == false) {
+    p.fall();
+  }               
+
+>>>>>>> 7c1656b1bb2cde94314f276631a01ce4d6aac727
   p.collide(mons);
   p.invin();
 
@@ -57,13 +66,12 @@ void draw() {
   mons.display();
   mons.move();
   mons.hitWall();
-  for(int i=0;i<m.length;i++){
+  for (int i=0; i<m.length; i++) {
     m[i].display();
     m[i].move();
     m[i].hitWall();
     p.collide(m[i]);
   }
- 
 }
 
 void keyPressed() {
@@ -73,36 +81,39 @@ void keyPressed() {
       if (keyCode == UP) {
         p.setLeft(0);
       }
-      
-      
-
     }
 
     if (keyCode == RIGHT) {
       p.setRight(1);
-       if (keyCode == UP) {
+      if (keyCode == UP) {
         p.setRight(0);
       }
-
     }
-    
-    if (keyCode == UP){ 
-                
-      if(test.tileAt(p.getX()+10, p.getY()+10) == 2 || 
-         test.tileAt(p.getX()+10, p.getY()+10) == 3 ||
-         test.tileAt(p.getX()-10, p.getY()-10) == 2 || 
-         test.tileAt(p.getX()-10, p.getY()-10) == 3 ||
-         test.tileAt(p.getX(), p.getY()) == 2 || 
-         test.tileAt(p.getX(), p.getY()) == 3){
+
+    if (keyCode == UP) { 
+
+      if (test.tileAt(p.getX()+10, p.getY()+10) == 2 || 
+        test.tileAt(p.getX()+10, p.getY()+10) == 3 ||
+        test.tileAt(p.getX()-10, p.getY()-10) == 2 || 
+        test.tileAt(p.getX()-10, p.getY()-10) == 3 ||
+        test.tileAt(p.getX(), p.getY()) == 2 || 
+        test.tileAt(p.getX(), p.getY()) == 3) {
         p.setJump(false);
         p.setClimb(true);
         p.setLeft(0);
         p.setRight(0);
+<<<<<<< HEAD
       }
       
     p.setJump(true);
    
   }
+=======
+      } else {
+        p.setJump(true);
+      }
+    }
+>>>>>>> 7c1656b1bb2cde94314f276631a01ce4d6aac727
   }
 }
 
@@ -112,45 +123,52 @@ void keyReleased() {
   if (key == CODED) {
     if (keyCode == LEFT) {
       p.setLeft(0);
-        if(keyCode == UP){
+      if (keyCode == UP) {
         p.setJump(false);
       }
     }
 
     if (keyCode == RIGHT) {
       p.setRight(0);
-        if(keyCode == UP){
+      if (keyCode == UP) {
         p.setJump(false);
       }
     }
 
+<<<<<<< HEAD
     
      if (keyCode == UP){
        p.setClimb(false);
      }
 
+=======
+>>>>>>> 7c1656b1bb2cde94314f276631a01ce4d6aac727
 
+    if (keyCode == UP) {
+      p.setJump(false);
+      p.setClimb(false);
+    }
   }
 }  
 
 void changeTile() {
-  //float pcenterX = p.getX()+tileSize/2;
-  //float pcenterY = p.getY()+tileSize/2;
-  if (test.tileAt(p.getX(), p.getY()+tileSize) == 1) { //if tile under is floor
-    test.setTile(p.getX(), p.getY()+tileSize, 3);
-    blue++;
-  }
-  if (test.tileAt(p.getX()+tileSize/2, p.getY()+tileSize) == 1) { //if tile under is floor
-    test.setTile(p.getX()+tileSize/2, p.getY()+tileSize, 3);
-    blue++;
-  }
-  if (test.tileAt(p.getX(), p.getY()) == 2) {
-    test.setTile(p.getX(), p.getY(), 3);
-    blue++;
-  }
-  if (test.tileAt(p.getX()+tileSize/1.5, p.getY()) == 2) {
-    test.setTile(p.getX()+tileSize/1.5, p.getY(), 3);
-    blue++;
+  if (p.isDead == false) {
+    if (test.tileAt(p.getX(), p.getY()+tileSize) == 1) { //if tile under is floor
+      test.setTile(p.getX(), p.getY()+tileSize, 3);
+      blue++;
+    }
+    if (test.tileAt(p.getX()+tileSize/2, p.getY()+tileSize) == 1) { //if tile under is floor
+      test.setTile(p.getX()+tileSize/2, p.getY()+tileSize, 3);
+      blue++;
+    }
+    if (test.tileAt(p.getX(), p.getY()) == 2) {
+      test.setTile(p.getX(), p.getY(), 3);
+      blue++;
+    }
+    if (test.tileAt(p.getX()+tileSize/1.5, p.getY()) == 2) {
+      test.setTile(p.getX()+tileSize/1.5, p.getY(), 3);
+      blue++;
+    }
   }
 }
 
@@ -163,5 +181,7 @@ void lose() {
     textSize(tileSize);
     textAlign(CENTER);
     text("YOU LOSE", width/2, height/2);
+    textSize(tileSize/1.5);
+    text("score: "+score, width/2, height/2+20);
   }
 }
