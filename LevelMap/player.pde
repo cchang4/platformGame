@@ -23,7 +23,7 @@ class player {
   float left;
   float right;
   float xspeed = 5.0;
-  float yspeed = -5.0;
+  float yspeed = 0.0;
   float GRAVITY = .25;
   float smoothen = .001;
   
@@ -38,9 +38,17 @@ class player {
    x -= (right - left) * (xspeed * smoothen);
    
    if(jump){
-     y+= yspeed;
      yspeed+= GRAVITY; 
+     y+= yspeed;
+     
+     if (p.getY() > ground){
+       yspeed = 0;
+       jump = false;
+    }
+   }else{
+     yspeed = -5.0;
    }
+   
    
    if(ladder){
      y -= 2;
@@ -55,6 +63,8 @@ class player {
      x = 0;
    }
   }
+  
+ 
   
   void setFall(boolean newFall){
     fall = newFall;

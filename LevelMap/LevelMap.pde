@@ -27,19 +27,16 @@ void setup() {
   }
 }
 
-float ground = p.getY();
+float ground = p.getY() - 1;
 final float max = ground - 50;
 
 void draw() {
   background(200);
   test.drawTile();
   p.display();
-  p.movement(); 
+  p.movement();
+ 
   
-  if (test.tileAt(p.getX()+20, p.getY()+20) == 0){
-    p.setFall(true);
-  }
-
   p.collide(mons);
   p.invin();
 
@@ -102,10 +99,9 @@ void keyPressed() {
         p.setLeft(0);
         p.setRight(0);
       }
-      if( test.tileAt(p.getX(), p.getY()) == 1){
-        p.setJump(false); 
-    }
+      
     p.setJump(true);
+   
   }
   }
 }
