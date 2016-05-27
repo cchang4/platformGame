@@ -35,17 +35,7 @@ void draw() {
   test.drawTile();
   p.display();
   p.movement();
-<<<<<<< HEAD
- 
-  
-=======
 
-
-  if (p.getY() < ground && p.getClimb() == false) {
-    p.fall();
-  }               
-
->>>>>>> 7c1656b1bb2cde94314f276631a01ce4d6aac727
   p.collide(mons);
   p.invin();
 
@@ -102,18 +92,13 @@ void keyPressed() {
         p.setClimb(true);
         p.setLeft(0);
         p.setRight(0);
-<<<<<<< HEAD
+
       }
       
     p.setJump(true);
    
-  }
-=======
-      } else {
-        p.setJump(true);
-      }
-    }
->>>>>>> 7c1656b1bb2cde94314f276631a01ce4d6aac727
+   }
+
   }
 }
 
@@ -135,19 +120,12 @@ void keyReleased() {
       }
     }
 
-<<<<<<< HEAD
     
      if (keyCode == UP){
        p.setClimb(false);
      }
 
-=======
->>>>>>> 7c1656b1bb2cde94314f276631a01ce4d6aac727
 
-    if (keyCode == UP) {
-      p.setJump(false);
-      p.setClimb(false);
-    }
   }
 }  
 
