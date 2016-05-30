@@ -33,12 +33,18 @@ Yiru: change the Tile when the player walks accross the floor tile or up the lad
 5/22  
 Catherine: Worked on ladder movements (doesn't quite work)  
 
-5/23
+5/23  
 Yiru: create monster, player loses life when colliding with monster, theres invincible time after the collision, player loses when there no lives left  
 Catherine: Worked more on ladder movement (still not there yet but closer now)  
 
 5/26  
 Catherine: Adjusting more movement (jumping etc.) not done yet tho  
+
+5/27  
+Catherine: succesfully fixed jumping
+
+5/30  
+Catherine: Adjusted ladder movement, not done. Now possible to change all tiles into new color.  
 
 Project outline:  
 1. Basic player movement (L&R&Jump)  
