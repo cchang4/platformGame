@@ -22,14 +22,13 @@ class player {
 
   float left;
   float right;
-  float xspeed = 5.0;
+  float xspeed = 4.5;
   float yspeed = 0.0;
   float GRAVITY = .25;
   float smoothen = .001;
   
-  float newplatform;
   boolean jump;
-  boolean ladder;
+  boolean ladderUp;
   boolean fall;
   
   
@@ -50,8 +49,10 @@ class player {
    }
    
    
-   if(ladder){
-     y -= 2;
+   if(ladderUp){
+     GRAVITY = 0;
+     yspeed = 0;
+     y-= 2;
    } 
    
    
@@ -64,36 +65,32 @@ class player {
    }
   }
   
- 
-  
-  void setFall(boolean newFall){
-    fall = newFall;
-  }
 
   float getX() {
     return x;
+  }
+  
+  void setX(float newX){
+    x = newX;
   }
 
   float getY() {
     return y;
   }
   
-  void setX(float newX){
-    x = newX;
-  }
-  
   void setY(float newY){
     y = newY;
   }
-
   
   boolean getClimb(){
-    return ladder;
+    return ladderUp;
+  }
+  
+  void setClimb(boolean newLadder){
+    ladderUp = newLadder;
   }
     
- 
   void setLeft( float newLeft) {
-
     left = newLeft;
   }
 
@@ -106,9 +103,6 @@ class player {
   }
 
   
-  void setClimb(boolean newLadder){
-    ladder = newLadder;
-  }
   
 
 
