@@ -29,8 +29,7 @@ class player {
   
   boolean jump;
   boolean ladderUp;
-  boolean fall;
-  
+  boolean fall;  
   
   void movement(){
    x += (right - left) * xspeed;   
@@ -135,7 +134,7 @@ class player {
   }
 
   public void dead() {
-    lives--;
+   // lives--;
     if (lives == 0) {
       isDead = true;
     }

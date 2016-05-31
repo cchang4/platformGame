@@ -28,18 +28,18 @@ void setup() {
 }
 
 float ground = p.getY() - 1;
-final float max = ground - 50;
+
+void setGround(float newGround){
+  ground = newGround - 1;
+}
 
 void draw() {
   background(200);
   test.drawTile();
+  
   p.display();
   p.movement();
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> catherine
   p.collide(mons);
   p.invin();
 
@@ -66,52 +66,38 @@ void draw() {
     m[i].hitWall();
     p.collide(m[i]);
   }
+  
+  print("ground" + ground);
+  print("tile" + test.tileAt(p.getX(), p.getY()));
+  /*
+  if(test.tileAt(p.getX(), p.getY()) == 0){
+    setGround(p.getY());
+  }
+  */
 }
 
 void keyPressed() {
   if (key == CODED) {
-    if (keyCode == LEFT) {
-      p.setLeft(1);
-<<<<<<< HEAD
-      if (keyCode == UP) {
+    if (keyCode == LEFT) {  
+      if (p.getY() < ground){
         p.setLeft(0);
+      }else{      
+       p.setLeft(1);
       }
-=======
->>>>>>> catherine
     }
 
     if (keyCode == RIGHT) {
-      p.setRight(1);
-<<<<<<< HEAD
-      if (keyCode == UP) {
+      if (p.getY() < ground){
         p.setRight(0);
+      }else{  
+       p.setRight(1);
       }
-    }
-
-    if (keyCode == UP) { 
-
-      if (test.tileAt(p.getX()+10, p.getY()+10) == 2 || 
-        test.tileAt(p.getX()+10, p.getY()+10) == 3 ||
-        test.tileAt(p.getX()-10, p.getY()-10) == 2 || 
-        test.tileAt(p.getX()-10, p.getY()-10) == 3 ||
-        test.tileAt(p.getX(), p.getY()) == 2 || 
-        test.tileAt(p.getX(), p.getY()) == 3) {
-        p.setJump(false);
-        p.setClimb(true);
-        p.setLeft(0);
-        p.setRight(0);
-
-      }
-      
-    p.setJump(true);
-   
-   }
-
-=======
     }
     
     if (keyCode == UP){ 
-      if (test.tileAt(p.getX(), p.getY()) == 2 || 
+      if (test.tileAt(p.getX()+5, p.getY()) == 2 || 
+          test.tileAt(p.getX()+5, p.getY()) == 3 ||
+          test.tileAt(p.getX(), p.getY()) == 2 || 
           test.tileAt(p.getX(), p.getY()) == 3){
             p.setJump(false);
             p.setClimb(true);
@@ -119,7 +105,6 @@ void keyPressed() {
                 
       p.setJump(true); 
     }
->>>>>>> catherine
   }
 }
 
@@ -128,22 +113,11 @@ void keyReleased() {
   if (key == CODED) {
     if (keyCode == LEFT) {
       p.setLeft(0);
-<<<<<<< HEAD
-      if (keyCode == UP) {
-        p.setJump(false);
-      }
-=======
->>>>>>> catherine
     }
 
     if (keyCode == RIGHT) {
       p.setRight(0);
-<<<<<<< HEAD
-      if (keyCode == UP) {
-        p.setJump(false);
-      }
-=======
->>>>>>> catherine
+
     }
 
     
