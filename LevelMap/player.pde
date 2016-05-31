@@ -23,30 +23,39 @@ class player {
   float right;
   float xspeed = 5.0;
   float smoothen = .001;
-  float once;
   boolean jump;
-
-
-  void movement() {
-    x += (right - left) * xspeed;   
-    x -= (right - left) * (xspeed * smoothen);
-
-    if (jump) {
-      y = max;
-    }
-
-
-    if (x>=480) {
-      x = 480;
-    }
-
-    if (x<0) {
-      x = 0;
-    }
+  boolean ladder;
+  
+  
+  void movement(){
+   x += (right - left) * xspeed;   
+   x -= (right - left) * (xspeed * smoothen);
+   
+   if(jump){
+     if(y > max){
+       y-= 12;
+     } 
+   
+   }
+   
+   if(ladder){
+     y -= 2;
+     
+   }
+   
+   
+   if(x>=480){
+     x = 480;
+   }
+   
+   if(x<0){
+     x = 0;
+   }
   }
 
 
-  void fall() {
+
+ void fall() {
     y += 5;
   } 
 
@@ -58,7 +67,14 @@ class player {
     return y;
   }
 
+  
+  boolean getClimb(){
+    return ladder;
+  }
+    
+ 
   void setLeft( float newLeft) {
+
     left = newLeft;
   }
 
@@ -69,6 +85,13 @@ class player {
   void setJump(boolean newJump) {
     jump = newJump;
   }
+
+  
+  void setClimb(boolean newLadder){
+    ladder = newLadder;
+  }
+  
+
 
 
   //collision/die
@@ -119,4 +142,5 @@ class player {
       }
     }
   }
+
 }
