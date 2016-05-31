@@ -50,7 +50,7 @@ void draw() {
   text("lives:"+lives, width-tileSize, tileSize);
   test.winLevel();
 
-  lose();
+  test.lose();
   score = blue * 10;
 
   mons.display();
@@ -121,22 +121,6 @@ void changeTile() {
     if (test.tileAt(p.getX()+tileSize/1.5, p.getY()) == 2) {
       test.setTile(p.getX()+tileSize/1.5, p.getY(), 3);
       blue++;
-    }
-  }
-}
-
-void lose() {
-  if (test.win == false) {
-    if (p.isDead) {
-      fill(0, 200);
-      rectMode(CENTER);
-      rect(width/2, height/2, width/2, height/2);
-      fill(250);
-      textSize(tileSize);
-      textAlign(CENTER);
-      text("YOU LOSE", width/2, height/2);
-      textSize(tileSize/1.5);
-      text("score: "+score, width/2, height/2+20);
     }
   }
 }
