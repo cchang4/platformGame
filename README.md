@@ -44,7 +44,10 @@ Catherine: Adjusting more movement (jumping etc.) not done yet tho
 Catherine: succesfully fixed jumping
 
 5/30  
-Catherine: Adjusted ladder movement, not done. Now possible to change all tiles into new color.  
+Catherine: Adjusted ladder movement, not done. Now possible to change all tiles into new color.    
+
+5/31  
+Catherine: Further adjusted mvements. Focusing on ladder ones. Made sprites, added to data folder  
 
 Project outline:  
 1. Basic player movement (L&R&Jump)  
