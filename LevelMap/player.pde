@@ -134,10 +134,16 @@ class player {
   }
 
   public void dead() {
+<<<<<<< HEAD
    // lives--;
+=======
+    if(test.win == false){
+    lives--;
+>>>>>>> 897b915b1545f7c1d0f706b85e8e8cff572e4dfa
     if (lives == 0) {
       isDead = true;
     }
+  }
   }
 
   //invincible after collision

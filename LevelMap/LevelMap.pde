@@ -54,7 +54,7 @@ void draw() {
   text("lives:"+lives, width-tileSize, tileSize);
   test.winLevel();
 
-  lose();
+  test.lose();
   score = blue * 10;
 
   mons.display();
@@ -78,6 +78,7 @@ void draw() {
 
 void keyPressed() {
   if (key == CODED) {
+<<<<<<< HEAD
     if (keyCode == LEFT) {  
       if (p.getY() < ground){
         p.setLeft(0);
@@ -104,6 +105,24 @@ void keyPressed() {
           }
                 
       p.setJump(true); 
+=======
+    if (keyCode == LEFT) {
+      p.setLeft(1);
+    }
+
+    if (keyCode == RIGHT) {
+      p.setRight(1);
+    }
+
+    if (keyCode == UP) { 
+      if (test.tileAt(p.getX(), p.getY()) == 2 || 
+        test.tileAt(p.getX(), p.getY()) == 3) {
+        p.setJump(false);
+        p.setClimb(true);
+      }
+
+      p.setJump(true);
+>>>>>>> 897b915b1545f7c1d0f706b85e8e8cff572e4dfa
     }
   }
 }
@@ -117,15 +136,16 @@ void keyReleased() {
 
     if (keyCode == RIGHT) {
       p.setRight(0);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 897b915b1545f7c1d0f706b85e8e8cff572e4dfa
     }
 
-    
-     if (keyCode == UP){
-       p.setClimb(false);
-     }
 
-
+    if (keyCode == UP) {
+      p.setClimb(false);
+    }
   }
 }  
 
@@ -147,19 +167,5 @@ void changeTile() {
       test.setTile(p.getX()+tileSize/1.5, p.getY(), 3);
       blue++;
     }
-  }
-}
-
-void lose() {
-  if (p.isDead) {
-    fill(0, 200);
-    rectMode(CENTER);
-    rect(width/2, height/2, width/2, height/2);
-    fill(250);
-    textSize(tileSize);
-    textAlign(CENTER);
-    text("YOU LOSE", width/2, height/2);
-    textSize(tileSize/1.5);
-    text("score: "+score, width/2, height/2+20);
   }
 }
