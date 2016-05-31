@@ -92,6 +92,8 @@ class level {
     return needChange;
   }
 
+  boolean win = false;
+  
   void winLevel() {
     if (cTiles() == 0) {
       fill(0, 200);
@@ -103,6 +105,7 @@ class level {
       text("LEVEL COMPLETE", width/2, height/2);
       textSize(tileSize/1.5);
       text("score: "+score, width/2, height/2+20);
+      win = true;
     }
   }
 }

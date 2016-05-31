@@ -35,11 +35,7 @@ void draw() {
   test.drawTile();
   p.display();
   p.movement();
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> catherine
   p.collide(mons);
   p.invin();
 
@@ -72,54 +68,21 @@ void keyPressed() {
   if (key == CODED) {
     if (keyCode == LEFT) {
       p.setLeft(1);
-<<<<<<< HEAD
-      if (keyCode == UP) {
-        p.setLeft(0);
-      }
-=======
->>>>>>> catherine
     }
 
     if (keyCode == RIGHT) {
       p.setRight(1);
-<<<<<<< HEAD
-      if (keyCode == UP) {
-        p.setRight(0);
-      }
     }
 
     if (keyCode == UP) { 
-
-      if (test.tileAt(p.getX()+10, p.getY()+10) == 2 || 
-        test.tileAt(p.getX()+10, p.getY()+10) == 3 ||
-        test.tileAt(p.getX()-10, p.getY()-10) == 2 || 
-        test.tileAt(p.getX()-10, p.getY()-10) == 3 ||
-        test.tileAt(p.getX(), p.getY()) == 2 || 
+      if (test.tileAt(p.getX(), p.getY()) == 2 || 
         test.tileAt(p.getX(), p.getY()) == 3) {
         p.setJump(false);
         p.setClimb(true);
-        p.setLeft(0);
-        p.setRight(0);
-
       }
-      
-    p.setJump(true);
-   
-   }
 
-=======
+      p.setJump(true);
     }
-    
-    if (keyCode == UP){ 
-      if (test.tileAt(p.getX(), p.getY()) == 2 || 
-          test.tileAt(p.getX(), p.getY()) == 3){
-            p.setJump(false);
-            p.setClimb(true);
-          }
-                
-      p.setJump(true); 
-    }
->>>>>>> catherine
   }
 }
 
@@ -128,30 +91,16 @@ void keyReleased() {
   if (key == CODED) {
     if (keyCode == LEFT) {
       p.setLeft(0);
-<<<<<<< HEAD
-      if (keyCode == UP) {
-        p.setJump(false);
-      }
-=======
->>>>>>> catherine
     }
 
     if (keyCode == RIGHT) {
       p.setRight(0);
-<<<<<<< HEAD
-      if (keyCode == UP) {
-        p.setJump(false);
-      }
-=======
->>>>>>> catherine
     }
 
-    
-     if (keyCode == UP){
-       p.setClimb(false);
-     }
 
-
+    if (keyCode == UP) {
+      p.setClimb(false);
+    }
   }
 }  
 
@@ -177,15 +126,17 @@ void changeTile() {
 }
 
 void lose() {
-  if (p.isDead) {
-    fill(0, 200);
-    rectMode(CENTER);
-    rect(width/2, height/2, width/2, height/2);
-    fill(250);
-    textSize(tileSize);
-    textAlign(CENTER);
-    text("YOU LOSE", width/2, height/2);
-    textSize(tileSize/1.5);
-    text("score: "+score, width/2, height/2+20);
+  if (test.win == false) {
+    if (p.isDead) {
+      fill(0, 200);
+      rectMode(CENTER);
+      rect(width/2, height/2, width/2, height/2);
+      fill(250);
+      textSize(tileSize);
+      textAlign(CENTER);
+      text("YOU LOSE", width/2, height/2);
+      textSize(tileSize/1.5);
+      text("score: "+score, width/2, height/2+20);
+    }
   }
 }
