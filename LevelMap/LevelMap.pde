@@ -29,11 +29,15 @@ void setup() {
 }
 
 float ground = p.getY() - 1;
-final float max = ground - 50;
+
+void setGround(float newGround){
+  ground = newGround - 1;
+}
 
 void draw() {
   background(200);
   test.drawTile();
+  
   p.display();
   p.movement();
 
@@ -63,10 +67,19 @@ void draw() {
     m[i].hitWall();
     p.collide(m[i]);
   }
+  
+  print("ground" + ground);
+  print("tile" + test.tileAt(p.getX(), p.getY()));
+  /*
+  if(test.tileAt(p.getX(), p.getY()) == 0){
+    setGround(p.getY());
+  }
+  */
 }
 
 void keyPressed() {
   if (key == CODED) {
+
     if (keyCode == LEFT) {
       p.setLeft(1);
     }
@@ -83,6 +96,7 @@ void keyPressed() {
       }
 
       p.setJump(true);
+
     }
   }
 }
@@ -96,6 +110,7 @@ void keyReleased() {
 
     if (keyCode == RIGHT) {
       p.setRight(0);
+
     }
 
 
