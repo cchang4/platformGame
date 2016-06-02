@@ -9,16 +9,32 @@ class player {
     this.y = y;
   }
 
-  void playerSetup() {
+  void playerSetup() {/*
     square = createShape(RECT, 0, 0, 20, 20);
     square.setFill(color(0, 0, 255));
     square.setStroke(false);
-    
+    */
   }
+  
+  PImage chara;
+  PImage charaflip;
+  boolean flip;
 
   void display() {
-    shape(square, x, y);
+   //shape(square, x, y);
+   chara = loadImage("player.png");
+   charaflip = loadImage("player left.png");
+   
+   if (flip){
+     image (charaflip, x, y);
+   } else {
+     image (chara, x, y);
+   }
   } 
+  
+  void setFlip(boolean newFlip){
+    flip = newFlip;
+  }
 
   float left;
   float right;
@@ -134,12 +150,9 @@ class player {
   }
 
   public void dead() {
-<<<<<<< HEAD
-   // lives--;
-=======
+
     if(test.win == false){
     lives--;
->>>>>>> 897b915b1545f7c1d0f706b85e8e8cff572e4dfa
     if (lives == 0) {
       isDead = true;
     }

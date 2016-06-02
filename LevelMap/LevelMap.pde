@@ -18,25 +18,25 @@ void setup() {
 
   frameRate(60);
 
-  mons.setup();
+ // mons.setup();
   m[0] = new monster(400, 260);
   m[1] = new monster(200, 180);
   m[2] = new monster(400, 60);
   for (int i=0; i<m.length; i++) {
-    m[i].setup();
+  //  m[i].setup();
   }
 }
 
 float ground = p.getY() - 1;
 
-void setGround(float newGround){
+void setGround(float newGround) {
   ground = newGround - 1;
 }
 
 void draw() {
   background(200);
   test.drawTile();
-  
+
   p.display();
   p.movement();
 
@@ -66,63 +66,46 @@ void draw() {
     m[i].hitWall();
     p.collide(m[i]);
   }
-  
-  print("ground" + ground);
-  print("tile" + test.tileAt(p.getX(), p.getY()));
+
   /*
   if(test.tileAt(p.getX(), p.getY()) == 0){
-    setGround(p.getY());
-  }
-  */
+   setGround(p.getY());
+   }
+   */
 }
 
 void keyPressed() {
   if (key == CODED) {
-<<<<<<< HEAD
     if (keyCode == LEFT) {  
-      if (p.getY() < ground){
+      if (p.getY() < ground) {
         p.setLeft(0);
-      }else{      
-       p.setLeft(1);
+      } else {      
+        p.setLeft(1);
       }
+
+      p.setFlip(true);
     }
 
     if (keyCode == RIGHT) {
-      if (p.getY() < ground){
+      if (p.getY() < ground) {
         p.setRight(0);
-      }else{  
-       p.setRight(1);
+      } else {  
+        p.setRight(1);
       }
-    }
-    
-    if (keyCode == UP){ 
-      if (test.tileAt(p.getX()+5, p.getY()) == 2 || 
-          test.tileAt(p.getX()+5, p.getY()) == 3 ||
-          test.tileAt(p.getX(), p.getY()) == 2 || 
-          test.tileAt(p.getX(), p.getY()) == 3){
-            p.setJump(false);
-            p.setClimb(true);
-          }
-                
-      p.setJump(true); 
-=======
-    if (keyCode == LEFT) {
-      p.setLeft(1);
-    }
 
-    if (keyCode == RIGHT) {
-      p.setRight(1);
+      p.setFlip(false);
     }
 
     if (keyCode == UP) { 
-      if (test.tileAt(p.getX(), p.getY()) == 2 || 
+      if (test.tileAt(p.getX()+5, p.getY()) == 2 || 
+        test.tileAt(p.getX()+5, p.getY()) == 3 ||
+        test.tileAt(p.getX(), p.getY()) == 2 || 
         test.tileAt(p.getX(), p.getY()) == 3) {
         p.setJump(false);
         p.setClimb(true);
       }
 
       p.setJump(true);
->>>>>>> 897b915b1545f7c1d0f706b85e8e8cff572e4dfa
     }
   }
 }
@@ -136,10 +119,6 @@ void keyReleased() {
 
     if (keyCode == RIGHT) {
       p.setRight(0);
-<<<<<<< HEAD
-
-=======
->>>>>>> 897b915b1545f7c1d0f706b85e8e8cff572e4dfa
     }
 
 
