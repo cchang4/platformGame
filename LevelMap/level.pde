@@ -39,7 +39,7 @@ class level {
           stroke(150, 120, 25);
           fill(157, 126, 21);
           break;
-        case 3:
+        case 3: //changed
           stroke(0, 232, 255);
           fill(0, 255, 255);
           break;

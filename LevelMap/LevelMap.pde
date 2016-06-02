@@ -25,6 +25,7 @@ void setup() {
   for (int i=0; i<m.length; i++) {
     m[i].setup();
   }
+  text(test.cTiles(), tileSize+40, tileSize);
 }
 
 float ground = p.getY() - 1;
