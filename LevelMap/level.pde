@@ -57,6 +57,7 @@ class level {
   }
 
   //determine what tile is at a given position
+
   int tileAt(float x, float y) {
     int gridX = int(x/tileSize);
     int gridY = int(y/tileSize);
@@ -77,6 +78,7 @@ class level {
     if (gridX<0 || gridX>=widthT || gridY<0 || gridY>=heightT) {
       return; // boundary check
     }
+
     world[gridY][gridX] = newTile;
   }
 
