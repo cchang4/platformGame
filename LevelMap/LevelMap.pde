@@ -18,12 +18,12 @@ void setup() {
 
   frameRate(60);
 
- // mons.setup();
+  // mons.setup();
   m[0] = new monster(400, 260);
   m[1] = new monster(200, 180);
   m[2] = new monster(400, 60);
   for (int i=0; i<m.length; i++) {
-  //  m[i].setup();
+    //  m[i].setup();
   }
 }
 
@@ -66,12 +66,8 @@ void draw() {
     m[i].hitWall();
     p.collide(m[i]);
   }
-
-  /*
-  if(test.tileAt(p.getX(), p.getY()) == 0){
-   setGround(p.getY());
-   }
-   */
+  
+  
 }
 
 void keyPressed() {
@@ -97,15 +93,16 @@ void keyPressed() {
     }
 
     if (keyCode == UP) { 
-      if (test.tileAt(p.getX()+5, p.getY()) == 2 || 
-        test.tileAt(p.getX()+5, p.getY()) == 3 ||
-        test.tileAt(p.getX(), p.getY()) == 2 || 
-        test.tileAt(p.getX(), p.getY()) == 3) {
+      if (test.tileAt(p.getX()-10, p.getY()) == 2 || 
+        test.tileAt(p.getX()-10, p.getY()) == 4 ||
+        test.tileAt(p.getX()+5, p.getY()) == 2 || 
+        test.tileAt(p.getX()+5, p.getY()) == 4) {
         p.setJump(false);
         p.setClimb(true);
+      } else {
+        p.setJump(true);
       }
 
-      p.setJump(true);
     }
   }
 }
@@ -139,11 +136,11 @@ void changeTile() {
       blue++;
     }
     if (test.tileAt(p.getX(), p.getY()) == 2) {
-      test.setTile(p.getX(), p.getY(), 3);
+      test.setTile(p.getX(), p.getY(), 4);
       blue++;
     }
     if (test.tileAt(p.getX()+tileSize/1.5, p.getY()) == 2) {
-      test.setTile(p.getX()+tileSize/1.5, p.getY(), 3);
+      test.setTile(p.getX()+tileSize/1.5, p.getY(), 4);
       blue++;
     }
   }

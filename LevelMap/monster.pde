@@ -10,23 +10,22 @@ class monster {
     this.y = y;
     direction = "right";
   }
-/*
+  /*
   void setup() {
-    mons = createShape(RECT, 0, 0, tileSize, tileSize);
-    mons.setFill(color(255, 0, 0));
-    mons.setStroke(false);
-  }
-  */
-  
+   mons = createShape(RECT, 0, 0, tileSize, tileSize);
+   mons.setFill(color(255, 0, 0));
+   mons.setStroke(false);
+   }
+   */
+
   PImage monster;
   PImage monsterflip;
 
   void display() {
     //shape(mons, x, y);
-    
+
     monster = loadImage("monster.png");
     monsterflip = loadImage("monster left.png");
-    
   }
 
   void move() {
@@ -47,12 +46,11 @@ class monster {
       direction = "left";
     }
   }
-  
-  float getX(){
+
+  float getX() {
     return x;
   }
-  float getY(){
+  float getY() {
     return y;
   }
-  
 }

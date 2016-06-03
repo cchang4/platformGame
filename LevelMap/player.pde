@@ -11,28 +11,28 @@ class player {
 
   void playerSetup() {/*
     square = createShape(RECT, 0, 0, 20, 20);
-    square.setFill(color(0, 0, 255));
-    square.setStroke(false);
-    */
+   square.setFill(color(0, 0, 255));
+   square.setStroke(false);
+   */
   }
-  
+
   PImage chara;
   PImage charaflip;
   boolean flip;
 
   void display() {
-   //shape(square, x, y);
-   chara = loadImage("player.png");
-   charaflip = loadImage("player left.png");
-   
-   if (flip){
-     image (charaflip, x, y);
-   } else {
-     image (chara, x, y);
-   }
+    //shape(square, x, y);
+    chara = loadImage("player.png");
+    charaflip = loadImage("player left.png");
+
+    if (flip) {
+      image (charaflip, x, y);
+    } else {
+      image (chara, x, y);
+    }
   } 
-  
-  void setFlip(boolean newFlip){
+
+  void setFlip(boolean newFlip) {
     flip = newFlip;
   }
 
@@ -42,69 +42,69 @@ class player {
   float yspeed = 0.0;
   float GRAVITY = .25;
   float smoothen = .001;
-  
+
   boolean jump;
   boolean ladderUp;
   boolean fall;  
-  
-  void movement(){
-   x += (right - left) * xspeed;   
-   x -= (right - left) * (xspeed * smoothen);
-   
-   if(jump){
-     yspeed+= GRAVITY; 
-     y+= yspeed;
-     
-     if (p.getY() > ground){
-       yspeed = 0;
-       jump = false;
+
+  void movement() {
+    x += (right - left) * xspeed;   
+    x -= (right - left) * (xspeed * smoothen);
+
+    if (jump) {
+      yspeed+= GRAVITY; 
+      y+= yspeed;
+
+      if (p.getY() > ground) {
+        yspeed = 0;
+        jump = false;
+      }
+    } else {
+      yspeed = -5.0;
     }
-   }else{
-     yspeed = -5.0;
-   }
-   
-   
-   if(ladderUp){
-     GRAVITY = 0;
-     yspeed = 0;
-     y-= 2;
-   } 
-   
-   
-   if(x>=480){
-     x = 480;
-   }
-   
-   if(x<0){
-     x = 0;
-   }
+
+
+    if (ladderUp) {
+      GRAVITY = 0;
+      yspeed = 0;
+      y-= 2;
+    } 
+
+
+    if (x>=480) {
+      x = 480;
+    }
+
+    if (x<0) {
+      x = 0;
+    }
   }
-  
+
 
   float getX() {
     return x;
   }
-  
-  void setX(float newX){
+
+  void setX(float newX) {
     x = newX;
   }
 
   float getY() {
     return y;
   }
-  
-  void setY(float newY){
+
+  void setY(float newY) {
     y = newY;
   }
-  
-  boolean getClimb(){
+
+  boolean getClimb() {
     return ladderUp;
   }
-  
-  void setClimb(boolean newLadder){
+
+  void setClimb(boolean newLadder) {
     ladderUp = newLadder;
   }
-    
+
   void setLeft( float newLeft) {
     left = newLeft;
   }
@@ -117,8 +117,8 @@ class player {
     jump = newJump;
   }
 
-  
-  
+
+
 
 
 
@@ -151,12 +151,12 @@ class player {
 
   public void dead() {
 
-    if(test.win == false){
-    lives--;
-    if (lives == 0) {
-      isDead = true;
+    if (test.win == false) {
+      // lives--;
+      if (lives == 0) {
+        isDead = true;
+      }
     }
-  }
   }
 
   //invincible after collision
@@ -173,5 +173,4 @@ class player {
       }
     }
   }
-
 }
