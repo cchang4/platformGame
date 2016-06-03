@@ -39,6 +39,7 @@ Catherine: Worked more on ladder movement (still not there yet but closer now)
 
 5/26  
 Catherine: Adjusting more movement (jumping etc.) not done yet tho  
+Yiru: fix the bug so that your score doesnt increase after you die
 
 5/27  
 Catherine: succesfully fixed jumping
@@ -48,6 +49,7 @@ Catherine: Adjusted ladder movement, not done. Now possible to change all tiles 
 
 5/31  
 Catherine: Further adjusted mvements. Focusing on ladder ones. Made sprites, added to data folder  
+Yiru: Fix bug so you don't continue to lose lives after you win or die (negative lives)
 
 Project outline:  
 1. Basic player movement (L&R&Jump)  
