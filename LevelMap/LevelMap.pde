@@ -30,51 +30,27 @@ void setup() {
 
 float ground = p.getY() - 1;
 
-void setGround(float newGround){
+void setGround(float newGround) {
   ground = newGround - 1;
 }
 
 void draw() {
   background(200);
-  test.drawTile();
-  
-  p.display();
-  p.movement();
 
-  p.collide(mons);
-  p.invin();
-
-
-  changeTile();
-  textAlign(LEFT);
-  textSize(tileSize/1.5);
-  fill(0);
-  text("changed:"+blue, tileSize, tileSize);
-  //text("changed:"+blue+"  leftover:"+test.cTiles(), tileSize,tileSize);
-  textAlign(RIGHT);
-  text("lives:"+lives, width-tileSize, tileSize);
   test.winLevel();
 
   test.lose();
-  score = blue * 10;
 
-  mons.display();
-  mons.move();
-  mons.hitWall();
-  for (int i=0; i<m.length; i++) {
-    m[i].display();
-    m[i].move();
-    m[i].hitWall();
-    p.collide(m[i]);
-  }
-  
-  print("ground" + ground);
-  print("tile" + test.tileAt(p.getX(), p.getY()));
+  gameScreen();
+
+
+  //print("ground" + ground);
+  //print("tile" + test.tileAt(p.getX(), p.getY()));
   /*
   if(test.tileAt(p.getX(), p.getY()) == 0){
-    setGround(p.getY());
-  }
-  */
+   setGround(p.getY());
+   }
+   */
 }
 
 void keyPressed() {
@@ -96,7 +72,6 @@ void keyPressed() {
       }
 
       p.setJump(true);
-
     }
   }
 }
@@ -110,7 +85,6 @@ void keyReleased() {
 
     if (keyCode == RIGHT) {
       p.setRight(0);
-
     }
 
 
@@ -139,4 +113,40 @@ void changeTile() {
       blue++;
     }
   }
+}
+
+void gameScreen() {
+  test.drawTile();
+
+  p.display();
+  p.movement();
+
+  p.collide(mons);
+  p.invin();
+
+  changeTile();
+  textAlign(LEFT);
+  textSize(tileSize/1.5);
+  fill(0);
+  text("changed:"+blue, tileSize, tileSize);
+  //text("changed:"+blue+"  leftover:"+test.cTiles(), tileSize,tileSize);
+  textAlign(RIGHT);
+  text("lives:"+lives, width-tileSize, tileSize);
+
+  score = blue * 10;
+
+  mons.display();
+  mons.move();
+  mons.hitWall();
+  for (int i=0; i<m.length; i++) {
+    m[i].display();
+    m[i].move();
+    m[i].hitWall();
+    p.collide(m[i]);
+  }
+}
+
+void restart(){
+  setup();
+ // score = 0;
 }
