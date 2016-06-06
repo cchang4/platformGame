@@ -51,6 +51,9 @@ Catherine: Adjusted ladder movement, not done. Now possible to change all tiles 
 Catherine: Further adjusted mvements. Focusing on ladder ones. Made sprites, added to data folder  
 Yiru: Fix bug so you don't continue to lose lives after you win or die (negative lives)
 
+6/2  
+Catherine: replaced with sprites  
+
 Project outline:  
 1. Basic player movement (L&R&Jump)  
 2. Changing color of platform when player moves over it  
