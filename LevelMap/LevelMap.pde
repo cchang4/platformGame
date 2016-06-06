@@ -27,18 +27,24 @@ void setup() {
   }
 }
 
-float ground = p.getY() - 1;
+float ground = p.getY();
 
 void setGround(float newGround) {
-  ground = newGround - 1;
+  ground = newGround;
 }
 
 void draw() {
+  println( "ground " + ground);
+  println("Y " + p.getY());
+  println("tile " + test.tileAt(p.getX(), p.getY()));
+  println("tile under " + test.tileAt(p.getX(), p.getY()+20));
+  println("tile above " + test.tileAt(p.getX(), p.getY()-20));
   background(200);
   test.drawTile();
 
   p.display();
   p.movement();
+
 
   p.collide(mons);
   p.invin();
@@ -66,8 +72,6 @@ void draw() {
     m[i].hitWall();
     p.collide(m[i]);
   }
-  
-  
 }
 
 void keyPressed() {
@@ -102,7 +106,11 @@ void keyPressed() {
       } else {
         p.setJump(true);
       }
-
+  if ( test.tileAt(p.getX(), p.getY()-20) == 1 ||
+        test.tileAt(p.getX(), p.getY()-20) == 3){
+          setGround(p.getY()-20);
+        }
+      
     }
   }
 }
