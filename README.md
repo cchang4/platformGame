@@ -54,16 +54,16 @@ Yiru: Fix bug so you don't continue to lose lives after you win or die (negative
 6/2  
 Catherine: replaced with sprites  
 
-6/6
-Yiru: Created reset setting so game can restart if loss or win
+6/6  
+Catherine: tried to make player walk on new platforms, failed miserably  
 
 Project outline:  
 1. Basic player movement (L&R&Jump)  
 2. Changing color of platform when player moves over it  
 3. Implement monsters  
-4. rest TBD once above is completed    
+4. Gat ladder and moving onto new platforms working  
 
 Demo Information:  
 LevelMap is the main file  
-Still working on first level   
-Movements still very buggy
+Movements are buggy  
+
