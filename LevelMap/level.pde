@@ -106,6 +106,8 @@ class level {
       text("LEVEL COMPLETE", width/2, height/2);
       textSize(tileSize/1.5);
       text("score: "+score, width/2, height/2+20);
+      textSize(tileSize/2);
+      text("press space to restart", width/2, height/2+40);
       win = true;
       reset = true;
     }
@@ -123,6 +125,8 @@ class level {
         text("YOU LOSE", width/2, height/2);
         textSize(tileSize/1.5);
         text("score: "+score, width/2, height/2+20);
+        textSize(tileSize/2);
+        text("press space to restart", width/2, height/2+40);
         reset = true;
       }
     }

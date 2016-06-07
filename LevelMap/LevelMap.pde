@@ -1,4 +1,4 @@
-level test = new level();
+level test;
 int tileSize = 20; //size of each tile in pixels
 int heightT = 20; //number of tiles vertically
 int widthT = 25; //number of tiles horizontally
@@ -12,8 +12,11 @@ monster[]m = new monster[3];
 
 void setup() {
   size(500, 300);
+  p = new player(0, 260);
   p.playerSetup();
   world = new int[heightT][widthT];
+  
+  test = new level();
   test.readFile("level.txt");
 
   score = 0;
