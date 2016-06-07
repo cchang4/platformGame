@@ -54,6 +54,9 @@ Yiru: Fix bug so you don't continue to lose lives after you win or die (negative
 6/2  
 Catherine: replaced with sprites  
 
+6/6
+Yiru: Created reset setting so game can restart if loss or win
+
 Project outline:  
 1. Basic player movement (L&R&Jump)  
 2. Changing color of platform when player moves over it  
