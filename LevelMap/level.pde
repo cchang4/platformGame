@@ -46,7 +46,7 @@ class level {
         default: //empty space
           //stroke(235);
           noStroke();
-          fill(240, 63);
+          fill(240, 30);
           //tint(255, 126);
           break;
         }
