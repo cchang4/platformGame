@@ -152,7 +152,7 @@ class player {
   public void dead() {
 
     if (test.win == false) {
-      // lives--;
+      lives--;
       if (lives == 0) {
         isDead = true;
       }
