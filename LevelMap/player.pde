@@ -138,7 +138,7 @@ class player {
 
       if (test.win == false) {
         lives--;
-        if (lives == 0) {
+        if (lives <= 0) {
           isDead = true;
         }else{
           isDead = false;

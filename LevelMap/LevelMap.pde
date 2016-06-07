@@ -6,8 +6,8 @@ player p = new player(0, 260);
 int[][]world;
 int blue;
 int score;
-int lives = 3;
-monster mons = new monster(400, 260);
+int lives;
+//monster mons = new monster(400, 260);
 monster[]m = new monster[3];
 
 void setup() {
@@ -16,16 +16,21 @@ void setup() {
   world = new int[heightT][widthT];
   test.readFile("level.txt");
 
+  score = 0;
+  lives = 3;
+  blue = 0;
+  //test.drawTile();
+
   frameRate(60);
 
-  mons.setup();
+  //mons.setup();
   m[0] = new monster(400, 260);
   m[1] = new monster(200, 180);
   m[2] = new monster(400, 60);
   for (int i=0; i<m.length; i++) {
     m[i].setup();
   }
-  text(test.cTiles(), tileSize+40, tileSize);
+  //text(test.cTiles(), tileSize+40, tileSize);
 }
 
 float ground = p.getY() - 1;
@@ -37,13 +42,35 @@ void setGround(float newGround) {
 void draw() {
   background(200);
 
+  //gameScreen();
+    test.drawTile();
+
+  p.display();
+  p.movement();
+
+  p.invin();
+
+  changeTile();
+  textAlign(LEFT);
+  textSize(tileSize/1.5);
+  fill(0);
+  text("changed:"+blue, tileSize, tileSize);
+  //text("changed:"+blue+"  leftover:"+test.cTiles(), tileSize,tileSize);
+  textAlign(RIGHT);
+  text("lives:"+lives, width-tileSize, tileSize);
+
+  score = blue * 10;
+
+  for (int i=0; i<m.length; i++) {
+    m[i].display();
+    m[i].move();
+    m[i].hitWall();
+    p.collide(m[i]);
+  }
+  
   test.winLevel();
 
   test.lose();
-
-  gameScreen();
-
-
   //print("ground" + ground);
   //print("tile" + test.tileAt(p.getX(), p.getY()));
   /*
@@ -52,6 +79,8 @@ void draw() {
    }
    */
 }
+
+boolean reset = false;
 
 void keyPressed() {
   if (key == CODED) {
@@ -73,6 +102,13 @@ void keyPressed() {
 
       p.setJump(true);
     }
+  }
+  
+  if(reset){
+  if(key == ' '){
+    setup();
+    reset = false;
+  }
   }
 }
 
@@ -121,7 +157,6 @@ void gameScreen() {
   p.display();
   p.movement();
 
-  p.collide(mons);
   p.invin();
 
   changeTile();
@@ -135,18 +170,10 @@ void gameScreen() {
 
   score = blue * 10;
 
-  mons.display();
-  mons.move();
-  mons.hitWall();
   for (int i=0; i<m.length; i++) {
     m[i].display();
     m[i].move();
     m[i].hitWall();
     p.collide(m[i]);
   }
-}
-
-void restart(){
-  setup();
- // score = 0;
 }
