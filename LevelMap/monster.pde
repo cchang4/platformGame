@@ -12,19 +12,27 @@ class monster {
   }
 
   void setup() {
+    /*
     mons = createShape(RECT, 0, 0, tileSize, tileSize);
     mons.setFill(color(255, 0, 0));
-    mons.setStroke(false);
+    mons.setStroke(false);*/
   }
 
+PImage monster;
+  PImage monsterflip;
+  
   void display() {
-    shape(mons, x, y);
+    //shape(mons, x, y);
+    monster = loadImage("monster.png");
+    monsterflip = loadImage("monster left.png");
   }
 
   void move() {
     if (direction.equals("right")) {
+      image(monster, x, y);
       x += speed;
     } else {
+      image(monsterflip, x, y);
       x -= speed;
     }
   }

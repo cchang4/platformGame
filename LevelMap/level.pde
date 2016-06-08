@@ -26,22 +26,42 @@ class level {
     }
   }
 
+ PImage platform;
+  PImage lad;
+  PImage changedplat;
+  PImage changedlad;
 
   void drawTile() { 
     for (int i=0; i<widthT; i++) { //each colunm
       for (int j=0; j<heightT; j++) { //each tile in that column
         switch(world[j][i]) {
         case 1: //floor
+          platform = loadImage("platform.png");
+          image(platform, i*tileSize, j*tileSize);
+          /*
           stroke(35, 170, 33);
-          fill(30, 200, 30);
+           fill(30, 200, 30);
+           */
           break;
         case 2: //ladder
+          /*
           stroke(150, 120, 25);
-          fill(157, 126, 21);
+           fill(157, 126, 21);
+           */
+          lad = loadImage("ladder.png");
+          image(lad, i*tileSize, j*tileSize);
           break;
-        case 3: //changed
+        case 3:
+          /*
           stroke(0, 232, 255);
-          fill(0, 255, 255);
+           fill(0, 255, 255);
+           */
+          changedplat = loadImage("changed platform.png");
+          image(changedplat, i*tileSize, j*tileSize);
+          break;
+        case 4:
+          changedlad = loadImage("changed ladder.png");
+          image(changedlad, i*tileSize, j*tileSize);
           break;
         default: //empty space
           //stroke(235);
