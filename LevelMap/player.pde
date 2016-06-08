@@ -10,11 +10,11 @@ class player {
   }
 
   void playerSetup() {
-    /*square = createShape(RECT, 0, 0, 20, 20);
+ /*   square = createShape(RECT, 0, 0, 20, 20);
     square.setFill(color(0, 0, 255));
     square.setStroke(false);*/
   }
-  
+
     PImage chara;
   PImage charaflip;
   boolean flip;
@@ -33,7 +33,7 @@ class player {
   void setFlip(boolean newFlip) {
     flip = newFlip;
   }
-
+  
   float left;
   float right;
   float xspeed = 4.5;

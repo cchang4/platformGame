@@ -30,34 +30,63 @@ void setup() {
   m[0] = new monster(400, 260);
   m[1] = new monster(200, 180);
   m[2] = new monster(400, 60);
-  /*for (int i=0; i<m.length; i++) {
-   //m[i].setup();
-   }*/
+  for (int i=0; i<m.length; i++) {
+    m[i].setup();
+  }
   //text(test.cTiles(), tileSize+40, tileSize);
 }
 
 float ground = p.getY() - 1;
 
 void setGround(float newGround) {
-  ground = newGround;
+  ground = newGround - 1;
 }
 
 void draw() {
-  println( "ground " + ground);
-  println("Y " + p.getY());
-  println("tile " + test.tileAt(p.getX(), p.getY()));
-  println("tile under " + test.tileAt(p.getX(), p.getY()+20));
-  println("tile above " + test.tileAt(p.getX(), p.getY()-20));
   background(200);
 
-  gameScreen();
+  //gameScreen();
+  test.drawTile();
+
+  p.display();
+  p.movement();
+
+  p.invin();
+
+  changeTile();
+  textAlign(LEFT);
+  textSize(tileSize/1.5);
+  fill(0);
+  text("changed:"+blue, tileSize, tileSize);
+  //text("changed:"+blue+"  leftover:"+test.cTiles(), tileSize,tileSize);
+  textAlign(RIGHT);
+  text("lives:"+lives, width-tileSize, tileSize);
+
+  score = blue * 10;
+
+  for (int i=0; i<m.length; i++) {
+    m[i].display();
+    m[i].move();
+    m[i].hitWall();
+    p.collide(m[i]);
+  }
+
+  test.winLevel();
+
+  test.lose();
+  //print("ground" + ground);
+  //print("tile" + test.tileAt(p.getX(), p.getY()));
+  /*
+  if(test.tileAt(p.getX(), p.getY()) == 0){
+   setGround(p.getY());
+   }
+   */
 }
 
 boolean reset = false;
 
 void keyPressed() {
   if (key == CODED) {
-
     if (keyCode == LEFT) {  
       if (p.getY() < ground) {
         p.setLeft(0);
@@ -88,11 +117,13 @@ void keyPressed() {
       } else {
         p.setJump(true);
       }
-      if ( test.tileAt(p.getX(), p.getY()-20) == 1 ||
+    } 
+    if ( test.tileAt(p.getX(), p.getY()-20) == 1 ||
         test.tileAt(p.getX(), p.getY()-20) == 3) {
         setGround(p.getY()-20);
       }
     }
+  
 
     if (reset) {
       if (key == ' ') {
@@ -101,7 +132,6 @@ void keyPressed() {
       }
     }
   }
-}
 
 
   void keyReleased() {

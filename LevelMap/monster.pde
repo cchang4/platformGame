@@ -12,8 +12,7 @@ class monster {
   }
 
   void setup() {
-    /*
-    mons = createShape(RECT, 0, 0, tileSize, tileSize);
+   /* mons = createShape(RECT, 0, 0, tileSize, tileSize);
     mons.setFill(color(255, 0, 0));
     mons.setStroke(false);*/
   }
@@ -36,7 +35,7 @@ PImage monster;
       x -= speed;
     }
   }
-
+  
   void hitWall() {
     if (x<0 || test.tileAt(x-tileSize, y+tileSize) == 0) {
       direction = "right";

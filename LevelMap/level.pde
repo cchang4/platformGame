@@ -30,7 +30,7 @@ class level {
   PImage lad;
   PImage changedplat;
   PImage changedlad;
-
+  
   void drawTile() { 
     for (int i=0; i<widthT; i++) { //each colunm
       for (int j=0; j<heightT; j++) { //each tile in that column
