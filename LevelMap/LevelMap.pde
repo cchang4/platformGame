@@ -16,6 +16,7 @@ void setup() {
   p.playerSetup();
   world = new int[heightT][widthT];
 
+
   test = new level();
   test.readFile("level.txt");
 
@@ -44,6 +45,13 @@ void setGround(float newGround) {
 
 void draw() {
   background(200);
+  
+  textAlign(LEFT);
+  text("tile check: " + test.tileAt(p.getX(), p.getY()), 100, 100);
+  text("tile below: " + test.tileAt(p.getX(), p.getY()+20), 100, 120);
+   text("tile X: " + test.tileXAt(p.getX(), p.getY()), 100, 140);
+   text("tile Y: " + test.tileYAt(p.getX(), p.getY()), 100, 160);
+   text("ground: " + ground, 100, 180);
 
   //gameScreen();
   test.drawTile();
@@ -74,13 +82,6 @@ void draw() {
   test.winLevel();
 
   test.lose();
-  //print("ground" + ground);
-  //print("tile" + test.tileAt(p.getX(), p.getY()));
-  /*
-  if(test.tileAt(p.getX(), p.getY()) == 0){
-   setGround(p.getY());
-   }
-   */
 }
 
 boolean reset = false;
@@ -114,14 +115,19 @@ void keyPressed() {
         test.tileAt(p.getX()+5, p.getY()) == 4) {
         p.setJump(false);
         p.setClimb(true);
+        
       } else {
         p.setJump(true);
       }
+      
+    if (  test.tileAt(p.getX(), p.getY()) == 0 &&
+          test.tileAt(p.getX(), p.getY()+20) == 4){
+            p.setPlayer(p.getX(), p.getY()-20);
+            setGround(p.getY() -20);
+          }
+      
     } 
-    if ( test.tileAt(p.getX(), p.getY()-20) == 1 ||
-        test.tileAt(p.getX(), p.getY()-20) == 3) {
-        setGround(p.getY()-20);
-      }
+   
     }
   
 

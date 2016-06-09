@@ -26,11 +26,11 @@ class level {
     }
   }
 
- PImage platform;
+  PImage platform;
   PImage lad;
   PImage changedplat;
   PImage changedlad;
-  
+
   void drawTile() { 
     for (int i=0; i<widthT; i++) { //each colunm
       for (int j=0; j<heightT; j++) { //each tile in that column
@@ -70,8 +70,8 @@ class level {
           //tint(255, 126);
           break;
         }
-        rect(i*tileSize, j*tileSize, //x,y top left corner
-          tileSize-1, tileSize-1); //width and height of tile
+        //    rect(i*tileSize, j*tileSize, //x,y top left corner
+        //      tileSize-1, tileSize-1); //width and height of tile
       }
     }
   }
@@ -90,65 +90,81 @@ class level {
     return world[gridY][gridX];
   }
 
-  //change tile at given position
-  void setTile(float x, float y, int newTile) {
+  float tileXAt(float x, float y) {
     int gridX = int(x/tileSize);
     int gridY = int(y/tileSize);
-
-    if (gridX<0 || gridX>=widthT || gridY<0 || gridY>=heightT) {
-      return; // boundary check
-    }
-
-    world[gridY][gridX] = newTile;
+    
+    return x;
+  }
+  
+  float tileYAt(float x, float y) {
+    int gridX = int(x/tileSize);
+    int gridY = int(y/tileSize);
+    
+    return y;
   }
 
-  int cTiles() {
-    int needChange = 0;
-    for (int i=0; i<widthT; i++) { //each colunm
-      for (int j=0; j<heightT; j++) {
-        if (world[j][i] == 1 || world[j][i] == 2) {
-          needChange++;
+
+
+    //change tile at given position
+    void setTile(float x, float y, int newTile) {
+      int gridX = int(x/tileSize);
+      int gridY = int(y/tileSize);
+
+      if (gridX<0 || gridX>=widthT || gridY<0 || gridY>=heightT) {
+        return; // boundary check
+      }
+
+      world[gridY][gridX] = newTile;
+    }
+
+    int cTiles() {
+      int needChange = 0;
+      for (int i=0; i<widthT; i++) { //each colunm
+        for (int j=0; j<heightT; j++) {
+          if (world[j][i] == 1 || world[j][i] == 2) {
+            needChange++;
+          }
         }
       }
+      return needChange;
     }
-    return needChange;
-  }
 
-  boolean win = false;
-  void winLevel() {
-    if (cTiles() == 0) {
-      fill(0, 200);
-      rectMode(CENTER);
-      rect(width/2, height/2, width/2, height/2);
-      fill(250);
-      textSize(tileSize);
-      textAlign(CENTER);
-      text("LEVEL COMPLETE", width/2, height/2);
-      textSize(tileSize/1.5);
-      text("score: "+score, width/2, height/2+20);
-      textSize(tileSize/2);
-      text("press space to restart", width/2, height/2+40);
-      win = true;
-      reset = true;
-    }
-  }
-
-  void lose() {
-    if (win == false) {
-      if (p.isDead) {
+    boolean win = false;
+    void winLevel() {
+      if (cTiles() == 0) {
         fill(0, 200);
         rectMode(CENTER);
         rect(width/2, height/2, width/2, height/2);
         fill(250);
         textSize(tileSize);
         textAlign(CENTER);
-        text("YOU LOSE", width/2, height/2);
+        text("LEVEL COMPLETE", width/2, height/2);
         textSize(tileSize/1.5);
         text("score: "+score, width/2, height/2+20);
         textSize(tileSize/2);
         text("press space to restart", width/2, height/2+40);
+        win = true;
         reset = true;
       }
     }
+
+    void lose() {
+      if (win == false) {
+        if (p.isDead) {
+          fill(0, 200);
+          rectMode(CENTER);
+          rect(width/2, height/2, width/2, height/2);
+          fill(250);
+          textSize(tileSize);
+          textAlign(CENTER);
+          text("YOU LOSE", width/2, height/2);
+          textSize(tileSize/1.5);
+          text("score: "+score, width/2, height/2+20);
+          textSize(tileSize/2);
+          text("press space to restart", width/2, height/2+40);
+          reset = true;
+        }
+      }
+    }
   }
-}
