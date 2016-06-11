@@ -55,14 +55,17 @@ class player {
     x += (right - left) * xspeed;   
     x -= (right - left) * (xspeed * smoothen);
 
+   
     if (jump) {
       yspeed+= GRAVITY; 
       y+= yspeed;
-
+      
       if (p.getY() > ground) {
         yspeed = 0;
         jump = false;
       }
+
+
     } else {
       yspeed = -5.0;
     }

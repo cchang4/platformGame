@@ -37,10 +37,10 @@ void setup() {
   //text(test.cTiles(), tileSize+40, tileSize);
 }
 
-float ground = p.getY() - 1;
+float ground = p.getY();
 
 void setGround(float newGround) {
-  ground = newGround - 1;
+  ground = newGround;
 }
 
 void draw() {
@@ -122,8 +122,8 @@ void keyPressed() {
       
     if (  test.tileAt(p.getX(), p.getY()) == 0 &&
           test.tileAt(p.getX(), p.getY()+20) == 4){
-            p.setPlayer(p.getX(), p.getY()-20);
             setGround(p.getY() -20);
+             p.setPlayer(p.getX(), p.getY());
           }
       
     } 
