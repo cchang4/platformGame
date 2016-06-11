@@ -57,6 +57,9 @@ Catherine: replaced with sprites
 6/6  
 Catherine: tried to make player walk on new platforms, failed miserably  
 
+6/10  
+Catherine: worked more on movements, now possible to complete game when following an extremely specific path  
+
 Project outline:  
 1. Basic player movement (L&R&Jump)  
 2. Changing color of platform when player moves over it  
