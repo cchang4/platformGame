@@ -58,7 +58,11 @@ Catherine: replaced with sprites
 Catherine: tried to make player walk on new platforms, failed miserably  
 
 6/10  
-Catherine: worked more on movements, now possible to complete game when following an extremely specific path  
+Catherine: worked more on movements, now possible to complete game when following an extremely specific path   
+
+6/12  
+Catherine: even after being drilled and roasted by dad the night before, no real progress was made....  
+           Adjusted code to run more smoothly.....   
 
 Project outline:  
 1. Basic player movement (L&R&Jump)  
@@ -69,4 +73,8 @@ Project outline:
 Demo Information:  
 LevelMap is the main file  
 Movements are buggy  
+**To complete the game: 1. make sure to dodge the enemy on first floor  
+** 2. cannot land on floating platforms, jump to change them  
+** 3. position player so that it is slightly touching the new level  
+** 4. run and climb thru the last two monsters to change the last block and complete the game!!!  
 
