@@ -37,21 +37,15 @@ void setup() {
   //text(test.cTiles(), tileSize+40, tileSize);
 }
 
-float ground = p.getY() - 1;
+float ground = p.getY();
 
 void setGround(float newGround) {
-  ground = newGround - 1;
+  ground = newGround;
 }
 
 void draw() {
   background(200);
-  
-  textAlign(LEFT);
-  text("tile check: " + test.tileAt(p.getX(), p.getY()), 100, 100);
-  text("tile below: " + test.tileAt(p.getX(), p.getY()+20), 100, 120);
-   text("tile X: " + test.tileXAt(p.getX(), p.getY()), 100, 140);
-   text("tile Y: " + test.tileYAt(p.getX(), p.getY()), 100, 160);
-   text("ground: " + ground, 100, 180);
+
 
   //gameScreen();
   test.drawTile();
@@ -83,7 +77,7 @@ void draw() {
 
   test.lose();
 }
-
+  
 boolean reset = false;
 
 void keyPressed() {
@@ -117,14 +111,18 @@ void keyPressed() {
         p.setClimb(true);
         
       } else {
+        if (test.tileAt(p.getX(), p.getY()) == 0 &&
+        (test.tileAt(p.getX(), p.getY()+20) == 3 )){
         p.setJump(true);
+          }
       }
       
     if (  test.tileAt(p.getX(), p.getY()) == 0 &&
-          test.tileAt(p.getX(), p.getY()+20) == 4){
-            p.setPlayer(p.getX(), p.getY()-20);
+          test.tileAt(p.getX(), p.getY()+20) == 4)
+          {
             setGround(p.getY() -20);
           }
+         
       
     } 
    
