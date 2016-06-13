@@ -41,7 +41,7 @@ class player {
 
   float left;
   float right;
-  float xspeed = 4.5;
+  float xspeed = 3.5;
   float yspeed = 0.0;
   float GRAVITY = .25;
   float smoothen = .001;
